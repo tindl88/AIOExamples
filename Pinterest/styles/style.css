@@ -1,0 +1,26 @@
+.absolute{position:absolute}
+#mod-pinterest{max-width:650px;position:relative;padding:0;margin:0 auto;visibility:hidden;display:none;opacity:0}
+#mod-pinterest #grid{position:relative}
+.commom-pin-item{border:1px solid #E2E2E2;border-radius:12px;overflow:hidden;box-shadow:1px 1px 4px -1px #ccc}
+.commom-pin-item .content{padding:0 10px}
+.commom-pin-item .inner{padding:0;background: #fff}
+.commom-pin-item .name{color:#444444;padding:0 10px;margin:18px 0 10px;font-size:14px;position:relative}
+.commom-pin-item .info{padding:0 10px;margin:4px 0 17px;color:#75787B}
+.commom-pin-item .info-hide{display: none}
+.commom-pin-item .pic a{display:block;position:relative}
+.commom-pin-item .readmore{padding:0 10px 27px}
+.commom-pin-item .readon{color:#4A90E2;border-bottom:2px solid #4A90E2;text-decoration: none;cursor: pointer}
+.commom-pin-item .user-info{padding:10px;border-top:1px solid #E2E2E2}
+.commom-pin-item .avatar-wrap {float:left;width:60px;border-radius:30px;overflow:hidden}
+.commom-pin-item .uinfo {font-size:13px;float:left;padding:7px 0 0 20px}
+.commom-pin-item .uinfo span {display: block;color:#75787B;padding:1px 0;}
+.commom-pin-item .uinfo strong {display: block;padding:1px 0;}
+.mfp-bg{background:#222}
+.bzPopup {position: relative;z-index: 100;box-shadow: 0px 1px 3px #999999;width: auto;margin: 32px auto;max-width: 100%;border-radius: 15px;}
+.bzPopup .mfp-close{color:#fff;font-size:40px;right:-37px;top:-37px;opacity:1}
+.bzPopup .commom-pin-item{border:none}
+.bzPopup .name, .bzPopup .info,.bzPopup .user-info{padding-left:15px;padding-right:15px}
+
+@media only screen and (max-width: 480px){
+	.bzPopup .mfp-close{right:0;top:0}
+}
