@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drag and Drop</title>
+	<link rel="stylesheet" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<div drag-drop id="mod-dragdrop" class="module">
+		<div class="container">
+			<p>Drag drop đơn giản (Mở console xem kết quả)</p>
+			<div class="dragPanel">
+				<a draggable="true" class="item" data-name="Tin" data-age="27"><img src="http://placehold.it/100x100"></a>
+				<a draggable="true" class="item" data-name="Toàn" data-age="25"><img src="http://placehold.it/100x100"></a>
+				<a draggable="true" class="item" data-name="Quí" data-age="24"><img src="http://placehold.it/100x100"></a>
+				<a draggable="true" class="item" data-name="Vũ" data-age="23"><img src="http://placehold.it/100x100"></a>
+			</div>
+			<div class="dropPanel"></div>
+		</div>
+	</div>
+	<script src="scripts/jquery-2.2.1.min.js"></script>
+	<script src="scripts/main.js"></script>
+</body>
+</html>

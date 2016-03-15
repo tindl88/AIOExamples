@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Phaser Text</title>
+	<link rel="stylesheet" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<div id="mod-phaser-bottle" class="module">
+		<div class="container" phaser-bottle bottle-image="data/phaser/front1.png" bottle-text="phaserBottle.bottleText" bottle-color-sequence="phaserBottle.colorSequence" bottle-polygon-one="phaserBottle.polygon1" bottle-polygon-two="phaserBottle.polygon2" bottle-polygon-three="phaserBottle.polygon3">
+			<input type="file" id="fileUpload">
+			<input type="text" ng-model="phaserBottle.bottleText">
+			<a class="color" color="333333" style="background: #333333"></a>
+			<a class="color" color="ff00ff" style="background: #ff00ff"></a>
+			<a class="color" color="ffff00" style="background: #ffff00"></a>
+			<a class="color" color="0000ff" style="background: #0000ff"></a>
+			<br />
+			<a class="font" font="Arial">Arial</a>
+			<a class="font" font="Tahoma">Tahoma</a>
+			<br />
+			<a class="image">
+				<img class="imgPattern" src="data/phaser/template.png" image="data/phaser/skin1.png">
+			</a>
+			<a class="image">
+				<img class="imgPattern" src="data/phaser/template1.png" image="data/phaser/skin2.png">
+			</a>
+			<br />
+			<span class="btn btn-primary" id="saveToBase64">Lưu hình</span>
+			<br />
+			<img src="" id="abc">
+			<div id="canvasWrap" style="position: relative">
+				<div forskin="skin1" class="dragOverlay oHide" ng-style="{width:phaserBottle.dragOverlay[0].w, height:phaserBottle.dragOverlay[0].h, left:phaserBottle.dragOverlay[0].x,top:phaserBottle.dragOverlay[0].y, 'transform':'rotate('+phaserBottle.dragOverlay[0].rotate+'deg)'}"></div>
+				<div forskin="skin2" class="dragOverlay oHide" ng-style="{width:phaserBottle.dragOverlay[1].w, height:phaserBottle.dragOverlay[1].h, left:phaserBottle.dragOverlay[1].x,top:phaserBottle.dragOverlay[1].y, 'transform':'rotate('+phaserBottle.dragOverlay[1].rotate+'deg)'}"></div>
+				<div forskin="skin3" class="dragOverlay oHide" ng-style="{width:phaserBottle.dragOverlay[2].w, height:phaserBottle.dragOverlay[2].h, left:phaserBottle.dragOverlay[2].x,top:phaserBottle.dragOverlay[2].y, 'transform':'rotate('+phaserBottle.dragOverlay[2].rotate+'deg)'}"></div>
+
+				<a forskin="skin1" class="upload" ng-show="phaserBottle.buttonUpload[0].visible" ng-style="{left:phaserBottle.buttonUpload[0].x,top:phaserBottle.buttonUpload[0].y}">
+					<img draggable="true" src="data/phaser/plus.png" alt="Style 1">
+				</a>
+				<a forskin="skin2" class="upload" ng-show="phaserBottle.buttonUpload[1].visible" ng-style="{left:phaserBottle.buttonUpload[1].x,top:phaserBottle.buttonUpload[1].y}">
+					<img draggable="true" src="data/phaser/plus.png" alt="Style 2">
+				</a>
+				<a forskin="skin3" class="upload" ng-show="phaserBottle.buttonUpload[2].visible" ng-style="{left:phaserBottle.buttonUpload[2].x,top:phaserBottle.buttonUpload[2].y}">
+					<img src="data/phaser/plus.png" alt="Style 3">
+				</a>
+				<div id="canvas"></div>
+			</div>
+		</div>
+	</div>
+	<script src="scripts/jquery-2.2.1.min.js"></script>
+	<script src="scripts/phaser.min.js"></script>
+	<script src="scripts/script.js"></script>
+</body>
+</html>

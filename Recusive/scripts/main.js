@@ -26,7 +26,7 @@
         function hideCate(id){
             $.each($('.' + id),function(i,o){
                 $(this).hide();
-                $(this).find('.node').removeClass('tropen');
+                $(this).find('.node').removeClass('tropen').text('+');
                 hideCate($(o).attr('id'));
             });
         }
@@ -41,12 +41,12 @@
             var thisId = $(this).parent().parent().attr('id');
             if($(this).hasClass('tropen')){
                 // Ẩn tất cả danh mục con
-                $(this).removeClass('tropen').addClass('trclose');
+                $(this).removeClass('tropen').addClass('trclose').text('+');
                 hideCate(thisId);
             }
             else{
                 // Hiện danh mục con khi click và danh mục cha
-                $(this).removeClass('trclose').addClass('tropen');
+                $(this).removeClass('trclose').addClass('tropen').text('-');
                 $('.grid .' + thisId).show();
             }
         });
