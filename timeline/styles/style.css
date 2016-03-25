@@ -1,0 +1,26 @@
+#mod-timeline{}
+#timeline{
+	background: #999;
+}
+.tlMember{
+	background: #cecece;
+}
+.tlProject{
+	background: #ccc;
+	margin-bottom: 1px;
+}
+.tlDay{
+	width:35.75px;
+	margin-left: 1px;
+	float:left;
+	background: #ddd;
+	text-align: center;
+	padding:4px 0;
+}
+.tlCol{
+	width:35.75px;
+	height:30px;
+	margin-left: 1px;
+	float:left;
+	background: #ddd;
+}
