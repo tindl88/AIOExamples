@@ -9,26 +9,26 @@
         name:'Mr A',
         group:'Ac',
         projects:[
-            {id:1, name:'DNA', startDate: new Date(2016, 2, 26), endDate: new Date(2016, 2, 28), color: 'red'},
-            {id:2, name:'PNJ', startDate: new Date(2016, 2, 26), endDate: new Date(2016, 3, 10), color: 'green'}
+        {id:1, name:'DNA', startDate: +new Date(2016, 2, 27) , endDate: new Date(2016, 2, 30), color: 'red'},
+        {id:2, name:'PNJ', startDate: new Date(), endDate: new Date(2016, 3, 10), color: 'green'}
         ]
     },{
         id:2,
         name:'Mr B',
         group:'Fe',
         projects:[
-            {id:3, name:'Lactum', startDate: new Date(2016, 2, 26), endDate: new Date(2016, 3, 5), color: 'blue'}
+        {id:3, name:'Lactum', startDate: new Date(), endDate: new Date(2016, 3, 5), color: 'blue'}
         ]
     }];
 
     $(document).ready(function() {
-        var startDate = new Date(2016, 2, 25);
-        var endDate = new Date(2016, 3, 15);
-
-        timeline.html(makeTimeline(startDate, endDate, 50));
+        var startDate = new Date();
+        var endDate = new Date();
+        endDate.setDate(endDate.getDate() + 20);
+        timeline.html(makeTimeline(startDate, endDate));
     });
 
-    function makeTimeline(startDate, endDate, a){
+    function makeTimeline(startDate, endDate){
         var tlMarkup = [];
         var dayCount = daysBetween(startDate, endDate);
 
@@ -44,15 +44,17 @@
         tlMarkup.push('<div class="clearfix"></div>');
 
         for (var row = 0; row < rows; row++) {
-            tlMarkup.push('<div class="tlMember tlMember'+members[row].group+'">'+members[row].name+'</div>');
+            tlMarkup.push('<div class="tlMember tlMember'+members[row].group+'"><strong>'+members[row].name+'</strong></div>');
 
             for (var project = 0; project < members[row].projects.length; project++) {
-                tlMarkup.push('<div class="tlProject">'+members[row].projects[project].name+'</div>');
+                tlMarkup.push('<div class="tlProject">'+members[row].projects[project].name+'('+members[row].projects[project].startDate+''+members[row].projects[project].endDate+')</div>');
 
-                _start = new Date(startDate);
+                var _start1 = new Date(startDate);
                 for (var col = 0; col <= cols; col++) {
-                    tlMarkup.push('<div class="tlCol tlCol'+members[row].group+'">'+getDateInfo(_start).month+'</div>');
-                    _start.setDate(_start.getDate() + 1);
+                    var checked = dateCheck(_start1, members[row].projects[project].startDate, members[row].projects[project].endDate);
+                    var color = members[row].projects[project].color;
+                    tlMarkup.push('<div class="tlCol tlCol'+members[row].group+'"'+(checked ? 'style="background:' + color: '')+'"></div>');
+                    _start1.setDate(_start1.getDate() + 1);
                 }
 
                 tlMarkup.push('<div class="clearfix"></div>');
@@ -71,6 +73,9 @@
         return Math.round((date2.getTime() - date1.getTime()) / oneDay);
     }
 
+    function dateCheck(checkDate, startDate, endDate) {
+        return checkDate >= startDate && checkDate <= endDate ? true : false;
+    }
     function getDateInfo(date) {
         var b = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         c = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
