@@ -1,0 +1,150 @@
+#mod-timeline{
+	#timeline{
+		color:#888;
+		border:1px solid #dadada;
+	}
+	.tl-weekend{
+		color:red;
+	}
+	.tl-today{
+		position: relative;
+		&:before {
+			content:'';
+			width: 0;
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			border-top: 12px solid #f00;
+			position: absolute;
+			left:50%;
+			bottom:-8px;
+			margin-left: -8px;
+		}
+		&:after {
+			content:'';
+			width: 2px;
+			top:100%;
+			left:50%;
+			margin-left: -1px;
+			height:32px;
+			background: red;
+			position: absolute;
+		}
+	}
+	.tl-data-wrap{
+		margin-left: -120px;
+		padding-left:120px;
+		width:100%;
+		float:left;
+		overflow-x:auto;
+	}
+	.tl-data{
+		width:max-content;
+		width:-moz-max-content;
+		width:-webkit-max-content;
+	}
+	#tl-month{
+		width:max-content;
+		width:-moz-max-content;
+		width:-webkit-max-content;
+		.tl-month-name{
+			float:left;
+			text-align: right;
+			position: relative;
+			height:28px;
+			&:before{
+				content:'';
+				position: absolute;
+				top:0;
+				right:-1px;
+				height:80px;
+				width:1px;
+				background: #dcdcdc;
+			}
+			span{
+				white-space: nowrap;
+				position: absolute;
+				right:7px;
+			}
+		}
+	}
+	#tl-group{
+		width:120px;
+		background: #fff;
+		font-size:15px;
+		text-align: center;
+		box-shadow:2px 1px 3px 0px #bbb;
+		float:left;
+		position: relative;
+		z-index: 1;
+		padding-top: 79px;
+	}
+	.tl-member,.tl-member-in{
+		padding:5px 10px;
+		background: #fff;
+		font-weight: 700;
+		color:#fff;
+		font-size: 15px;
+		text-transform: uppercase;
+	}
+	.tl-member{
+		background: #000;
+	}
+	.tl-member-in{
+		background: #fafafa;
+		border-top:1px solid #dcdcdc;
+		strong{
+			opacity: 0;
+		}
+	}
+	.tl-project-name{
+		color:#fff;
+		border-top:1px solid #999;
+		background: #75787B;
+		display: table;
+		width:100%;
+		height:51.2px;
+		padding:0 5px;
+		span{
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+	.date-wrap{
+		background: #fff;
+		.tl-day{
+			width:33px;
+			float:left;
+			text-align: center;
+			border-left:1px solid transparent;
+			padding:0 0 10px;
+		}
+		.dstr{
+			font-size: 10px;
+		}
+	}
+	.content-wrap{
+		background: #f4f4f4;
+	}
+	.tl-col{
+		width:33px;
+		float:left;
+		border-left:1px solid #dcdcdc;
+		border-top:1px solid #dcdcdc;
+		padding:10px 0;
+		.tl-col-inner{
+			height:30px;
+			position: relative;
+			&:before{
+				content:'';
+				position: absolute;
+				width:100%;
+				height:100%;
+				background-color: inherit;
+				margin:0 -1px;
+			}
+		}
+	}
+	.day-checked{
+		cursor: pointer;
+	}
+}
