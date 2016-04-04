@@ -9,13 +9,15 @@
 <body>
 	<canvas id="canvas" width="552px" height="390px"></canvas>
 	<textarea id="txtMessage" maxlength="60"></textarea><br>
-	<button onclick="canvasJs.insertImage()">Chèn hình</button>
-	<button onclick="canvasJs.insertComment()">Chèn Bubble</button>
-	<button onclick="canvasJs.save()">Lưu</button>
-	<img id="preview">
+	<input type="file" id="file">
+	<button id="btnSubmitFile">Lưu file</button>
+	<button id="btnSubmitBase64">Lưu base64</button>
+	<button id="btnClear">Xóa hết</button>
+
 	<script src="scripts/jquery-2.2.1.min.js"></script>
 	<script src="scripts/fabric.min.js"></script>
+	<script src="scripts/helpers.js"></script>
 	<script src="scripts/fabric.helper.js"></script>
-	<script src="scripts/script.js"></script>
+	<script src="scripts/main.js"></script>
 </body>
 </html>
