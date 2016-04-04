@@ -1,0 +1,10 @@
+#file-manager-progressbar{
+	width:400px;
+	border:1px solid #ccc;
+}
+#file-manager-progressbar .f-progress-bar{
+	transition: width 300ms;
+	height:20px;
+	background: blue;
+	width:0;
+}
