@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style>
+    @media only screen and (max-width: 640px) {
+
+    }
+</style>
+</head>
+
+<body style="margin:0px; padding:0px;">
+	<table style="width:100%;margin:0px auto;padding:0px; background:#fff;max-width: 600px; font-size:15px; font-family:Arial;" align="center" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td style="text-align:center; text-transform:uppercase;font-weight:bold;padding:20px 0;">
+                <span>Hướng dẫn chi tiết về cách tạo, đặt tên và cắt EDM</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Những điều cần phải biết trước khi cắt EDM:</p>
+                <ol>
+                    <li>Biết những thẻ cơ bản về HTML và CSS.</li>
+                    <li>Biết cách chuyển từ PSD sang HTML.</li>
+                    <li>Đọc cuốn EDM.pdf được cung cấp sẵn để biết những gì mà Email, Gmail, Outlook hỗ trợ và không hỗ trợ.</li>
+                </ol>
+            </td>
+        </tr>
+		<tr align="top">
+			<td style="width:100%;padding:10px; margin:0px; line-height:18px; background:none; border:none;font-family:Arial;color:#000;font-size:15px;vertical-align:top; ">
+				<ul>
+                    <li><strong>Đầu tiên:</strong> Tạo folder EDM</li>
+                    <span>Trong folder EDM gồm:</span><br />
+                    <ol>
+                        <li>Tạo folder chứa hình ảnh được cắt từ PSD đặt tên : images </li>
+                        <li>Tạo một file mới và save dưới tên và đuôi: <strong>edm</strong> và đuôi là <strong>.html</strong></li>
+                        <span>Ví dụ như hình bên dưới:</span><br />
+                        <span><img src="images/demo1.jpg" style="max-width:100%;display:inline-block;margin:0 auto;" alt="" /></span>
+                    </ol>
+                    <br>
+                    <li><strong>Bước 2:</strong> Tạo cấu trúc cho file edm.html</li>
+                    <ol>
+                        Coppy đoạn code bên dưới vào file edm.html và lưu lại<br><br>
+                        <code>
+                        <span><span><</span>html<span>></span></span><br>
+                        <span><span><</span>head<span>></span></span><br>
+                        <span><span><</span>meta http-equiv="Content-Type" content="text/html; charset=utf-8" <span>/></span></span><br />
+                        <span><span><</span>title<span>></span> GocKinhNghiem.com <span><</span>/title<span>></span></span><br />
+                        <span><span><</span>/head<span>></span></span><br>
+                        <span><span><</span>body style="margin:0px; padding:0px;"<span>></span></span><br />
+                        &#160;&#160;&#160;&#160;&#160;<span><span><</span>table<span>></span></span><br />
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span><span><</span>tr<span>></span></span><br />
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span><span><</span>td<span>></span></span><br />
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Bởi vì EDM có hạn chế sử dụng thẻ html và css nên bắt buộc phải dùng thẻ table, tr, td để định dạng hàng và cột cho EDM<br/>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span><span><</span>/td<span>></span></span><br />
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span><span><</span>/tr<span>></span></span><br />
+                        &#160;&#160;&#160;&#160;&#160;<span><span><</span>/table<span>></span></span><br />
+                        <span><span><</span>/body<span>></span></span><br />
+                        <span><span><</span>/html<span>></span></span><br>
+                        </code>
+                    </ol>
+                    <br />
+                    <span><img src="images/demo2.jpg" style="max-width:100%;display:inline-block;margin:0 auto;" alt="" /></span>
+                </ul>
+			</td>
+		</tr>
+        <tr>
+            <td style="padding:20px 0;">
+                <span style=" text-align:center;text-transform:uppercase;font-weight:bold;display:inline-block;padding-bottom:10px;width: 100%;">Hướng dẫn làm responsive EDM</span><br />
+                <span style="font-weight:100;">Để responsive cho EDM, chúng ta cần gắn đoạn media queries bên dưới vào tag <span><</span>head<span>></span> <span>< /</span>head<span>></span> :</span><br /><br />
+                <span><span><</span>style<span>></span></span><br />
+                <span>&#160;&#160;&#160;&#160;&#160; @media only screen and (max-width: 640px) {<br />
+                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span>/* Để style css cho EDM trên các ứng dụng thì chúng ta viết ở đây */<br>
+                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ví dụ: <br />
+                     &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;table{font-size:12px !important;}</span><br />
+                &#160;&#160;&#160;&#160;&#160;}</span><br />
+                <span><span><</span>/style<span>></span></span><br />
+            </td>
+        </tr>
+    	<tr>
+            <td style="text-align:center; text-transform:uppercase;font-weight:bold;padding:20px 0;">
+                <span>Để biết media queries support trên những thiết bị nào thì xem tại <a href="https://litmus.com/help/email-clients/media-query-support/" target="_bank">đây</a></span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
