@@ -2,7 +2,7 @@ var dpdJs = (function(){
 	'use strict';
 
     var configs = {
-        baseURL: 'http://128.199.227.141:3001/'
+        baseURL: 'http://localhost:5555/'
     };
 
     return {

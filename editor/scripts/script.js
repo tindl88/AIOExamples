@@ -16,7 +16,7 @@ if (document.selection) {
 }
 else {
    sel = window.getSelection();
-  sel.collapse(divEditor.firstChild, char);
+  //sel.collapse(divEditor.firstChild, char);
 }
 
 
@@ -25,7 +25,7 @@ else {
 		var isUnderline = document.queryCommandState ('underline');
 
 
-		console.log(selection);
+		console.log(sel);
 	});
 }
 

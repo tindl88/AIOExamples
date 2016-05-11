@@ -1,3 +1,46 @@
+;(function ( $, window, document, undefined ) {
+    // Create the defaults once
+    var pluginName = "pinterest",
+    defaults = {
+    	propertyName: "value"
+    };
+
+    // The actual plugin constructor
+    function Plugin( element, options ) {
+    	this.element = element;
+    	this.options = $.extend( {}, defaults, options) ;
+    	this._defaults = defaults;
+    	this._name = pluginName;
+    	this.init();
+    }
+
+    Plugin.prototype = {
+
+    	init: function() {
+    		this.changeText(this.element, this.options);
+    	},
+
+    	changeText: function(el, options) {
+            //console.log($(this.element).text(this.options.propertyName));
+            console.log(el);
+        }
+    };
+
+    $.fn[pluginName] = function ( options ) {
+    	return this.each(function () {
+    		if (!$.data(this, "plugin_" + pluginName)) {
+    			$.data(this, "plugin_" + pluginName, new Plugin( this, options ));
+    		}
+    	});
+    };
+})( jQuery, window, document );
+
+$(window).load(function() {
+	$('.abc').pinterest({
+		propertyName: '222222'
+	});
+});
+
 (function(){
 	'use strict';
 
@@ -61,6 +104,7 @@
 			marginRight = parseInt(iElement.attr('pin-margin-right')),
 			marginBottom = parseInt(iElement.attr('pin-margin-bottom')),
 			itemCount = pinItems.length,
+
 			winW = win.width();
 			if(winW < 769) {
 				itemPerRow = 2;
