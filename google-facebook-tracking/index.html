@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Facebook Google Tracking</title>
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+		n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+			document,'script','https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '989935801102957');
+		fbq('track', "PageView");
+	</script>
+	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=989935801102957&ev=PageView&noscript=1"/></noscript>
+	<!-- End Facebook Pixel Code -->
+</head>
+<body ng-controller="homeCtrl as home">
+	<h1>Trang chủ</h1>
+	<button ng-click="home.register()">Đăng ký</button>
+	<script src="scripts/angular.min.js"></script>
+	<script src="scripts/angular-google-analytics.min.js"></script>
+	<script src="scripts/app.js"></script>
+	<!-- Google Tags -->
+	<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
+	<!-- End Google Tags -->
+</body>
+</html>
