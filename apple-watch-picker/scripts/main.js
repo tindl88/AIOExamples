@@ -9,61 +9,69 @@ var sliderJs = (function(){
 	var topOffset = 20;
 	var marginTop = 0;
 
-	setup();
+	init();
 
-	function setup(){
+	function init(){
 		var h = mod.find('.item:first').height();
-		var scaleVal = 1;
 		currentSlide = -1;
 		mod.find('.slider').css({marginTop:-marginTop, height:h});
 		TweenMax.set($('.item'), {clearProps:'z-index'});
 
-		for (var i = 0; i < sliderCount; i++) {
-  			scaleVal += scaleOffset;
-			var y = topOffset * i;
-  			var scale = scaleVal - (sliderCount * scaleOffset);
-
-			TweenMax.set($('.item:eq('+i+')'), {y:y, scale:scale});
-		}
+		TweenMax.set($('.item').eq(0), {y:0, scale:0.92, transformOrigin:'center top'});
+		TweenMax.set($('.item').eq(1), {y:20, scale:0.96, transformOrigin:'center top'});
+		TweenMax.set($('.item').eq(2), {y:40, scale:1, transformOrigin:'center top'});
 	}
 
-	function gotoSlide(){
-		var array = [];
-		for (var i = 0; i < sliderCount; i++) {
-			array.push(i);
-		}
-
-		if(isPlaying) return;
-		isPlaying = true;
+	function gotoSlide(offset){
 		currentSlide++;
 
-		var tmp = array.splice(0, currentSlide);
-		var result = array.concat(tmp);
+		switch(currentSlide){
+			case 0:
+			if(offset>0){
+				TweenMax.to($('.item').eq(0), 0.2, {yPercent:100, onComplete:function(){
+					TweenMax.set($('.item').eq(0), {scale:1, zIndex:1});
+					TweenMax.to($('.item').eq(0), 0.5, {y:40, yPercent:0});
+				}});
+				TweenMax.to($('.item').eq(1), 0.5, {y:0, scale:0.92});
+				TweenMax.to($('.item').eq(2), 0.5, {y:20, scale:0.96});
+			} else {
+				TweenMax.to($('.item').eq(2), 0.3, {yPercent:100, onComplete:function(){
+					TweenMax.set($('.item').eq(2), {scale:0.92, zIndex:-1});
+					TweenMax.to($('.item').eq(2), 0.2, {y:0, yPercent:0});
+				}});
+				TweenMax.to($('.item').eq(1), 0.5, {y:40, scale:1});
+				TweenMax.to($('.item').eq(0), 0.5, {y:20, scale:0.96});
+			}
+			break;
+			case 1:
+			if(offset>0){
+				TweenMax.to($('.item').eq(1), 0.1, {yPercent:100, onComplete:function(){
+					TweenMax.set($('.item').eq(1), {scale:1, zIndex:1});
+					TweenMax.to($('.item').eq(1), 0.5, {y:40, yPercent:0});
+				}});
+				TweenMax.to($('.item').eq(2), 0.5, {y:0, scale:0.92});
+				TweenMax.to($('.item').eq(0), 0.5, {y:20, scale:0.96});
+			} else {
 
-		var scaleVal = 1;
-		for (var i = 0; i < result.length; i++) {
-			scaleVal += scaleOffset;
-			var y = topOffset * i - topOffset;
-			var scale = scaleVal - (sliderCount * scaleOffset) - scaleOffset;
-			TweenMax.to($('.item:eq('+result[i]+')'),1, {y:y, scale:scale});
+			}
+			break;
+			case 2:
+			if(offset>0){
+				TweenMax.to($('.item').eq(2), 0.1, {yPercent:100, onComplete:function(){
+					TweenMax.set($('.item').eq(2), {scale:1, zIndex:1});
+					TweenMax.to($('.item').eq(2), 0.5, {y:40, yPercent:0});
+				}});
+				TweenMax.to($('.item').eq(0), 0.5, {y:0, scale:0.92});
+				TweenMax.to($('.item').eq(1), 0.5, {y:20, scale:0.96});
+			} else {
+
+			}
+			break;
 		}
-
-		TweenMax.killTweensOf($('.item:eq('+currentSlide+')'));
-		TweenMax.to($('.item:eq('+currentSlide+')'),0, {scale:1, yPercent:150, onComplete: function(){
-			$('.item:eq('+currentSlide+')').css({zIndex:currentSlide + 1});
-			TweenMax.to($('.item:eq('+currentSlide+')'),1, {y:(sliderCount-1) * topOffset, yPercent:0, onComplete: function(){
-				TweenMax.delayedCall(0.2, function(){
-					if(currentSlide+1 === sliderCount){
-						setup();
-					}
-					isPlaying = false;
-				});
-			}});
-		}});
 	}
 
 	return {
-		reset: setup,
+		init: init,
 		gotoSlide: gotoSlide
 	};
 })();
