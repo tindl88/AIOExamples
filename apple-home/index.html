@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sortable</title>
+	<style>
+		.text-center{
+			text-align: center;
+		}
+		.sort-list{
+			width:600px;
+		}
+		.clearfix{
+			clear:both;
+		}
+		.item{
+			float:left;
+			padding:0 10px;
+			position: relative;
+		}
+		.folder .inner{
+			background: #ddd;
+		}
+		.inner{
+			width:100px;
+			height:100px;
+			border:1px solid #ccc;
+			background: #fff;
+			position: relative;
+		}
+		.icon{
+			width:50px;
+			height:50px;
+			background: red;
+			margin:10px auto 0;
+			border-radius:25px;
+			/*position: absolute;
+			top:0;
+			left:50%;
+			margin-left:-25px;*/
+		}
+		.right-side{
+			position: absolute;
+			top:0px;
+			right:-10px;
+			width:20px;
+			height:102px;
+			background: #ccc;
+			z-index: 1;
+			display: none;
+		}
+		.left-side{
+			position: absolute;
+			top:0px;
+			left:-10px;
+			width:20px;
+			height:102px;
+			background: #ccc;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="sort-list">
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item folder">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item folder">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item folder">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="item">
+			<div class="inner">
+				<div class="icon"></div>
+				<div class="caption text-center">
+					<span>abc xyz</span>
+				</div>
+			</div>
+			<div class="left-side"></div>
+			<div class="right-side"></div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery-ui.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var selected;
+
+			$(".item").on('click', function(event) {
+				//selected = $(this);
+			});
+
+			$(".item").on('mousedown', function(event) {
+				selected = $(this);
+				selected.addClass('selected').css({zIndex:100}).find('.icon').css({zIndex:100, background:'blue'});
+			});
+
+			$(".item").on('mouseup', function(event) {
+				selected.removeClass('selected').css({zIndex:''}).find('.icon').css({zIndex:'', background:'red'});
+			});
+
+			$(".icon").draggable();
+
+			$(".icon,.left-side,.right-side").droppable({
+				drop: function(event, ui) {
+					event.preventDefault();
+					event.stopPropagation();
+					//var isRightSide = $(event.target).hasClass('right-side');
+					//var isFolder = $(event.target).hasClass('folder');
+					//if(isRightSide){
+						//console.log(isRightSide);
+					//} else {
+						console.log(event);
+					//}
+				}
+			});
+		});
+	</script>
+</body>
+</html>
