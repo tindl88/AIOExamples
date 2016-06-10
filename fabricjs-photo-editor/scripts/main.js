@@ -7,26 +7,10 @@
 	var btnClear = $('#btnClear');
 	var baseURL = 'http://128.199.227.141:3001/';
 
-	canvas.addImage({unique:'myFrame', url:'images/frame.png', selectable: false, perPixelTargetFind: true}, function(img1){
+	canvas.addImage({unique:'mainPic', url:'images/test.jpg', selectable: false, perPixelTargetFind: false}, function(img1){
 		canvas.add(img1);
-
-		canvas.addImage({unique:'myBubble', url:'images/bubble.png', originX:'center', originY:'center', scaleX:0.7, scaleY:0.7}, function(img2){
-			canvas.add(img2);
-			img2.setShadow({color:'rgba(255,0,0,0.7)', blur:6, offsetX:1, offsetY:1});
-			img2.sendToBack();
-
-			var text = canvas.addText({unique: 'myText', memory:true, text:txtMessage.val(), fontSize:15, textAlign:'center', originX:'center', originY:'center'}).setShadow({color:'rgba(255,0,0,0.7)', blur:6, offsetX:1, offsetY:1});
-			var group = new fabric.Group([img2, text], {unique:'myGroup', left:380, top:-10, selectable:true, hasControls:true});
-			canvas.add(group);
-
-			var myGroup = canvas.getItemsByUnique('myGroup');
-			myGroup[0].bringToFront();
-
-			canvas.addImage({unique:'myPic', url:'images/pic.jpg', selectable:true}, function(img3){
-				canvas.add(img3);
-				img3.sendToBack();
-			});
-		});
+		canvas.centerObject(img1);
+		console.log(canvas);
 	});
 
 	$(document).ready(function() {
