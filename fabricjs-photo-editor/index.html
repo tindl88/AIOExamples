@@ -1,24 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>fabricJs - Photo Editor</title>
-	<link rel="stylesheet" href="styles/bootstrap.min.css">
-	<link rel="stylesheet" href="styles/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<style>
+		#bzPhotoEditor{margin:0 auto;width:320px;height:480px;background: #333;}
+		#bzPhotoControls{width:320px;margin:0 auto;}
+		#canvas{display: none;}
+	</style>
 </head>
 <body>
-	<canvas id="canvas" width="320" height="480"></canvas>
-	<div class="text-center">
-		<textarea id="txtMessage" maxlength="60"></textarea><br>
-		<!-- <input type="file" id="file"> -->
-		<!-- <button id="btnSubmitFile">Lưu file</button> -->
-		<!-- <button id="btnSubmitBase64">Lưu base64</button> -->
-		<!-- <button id="btnClear">Xóa hết</button> -->
+	<div id="bzPhotoEditor">
+		<img id="editorImage">
 	</div>
-	<script src="scripts/jquery-2.2.1.min.js"></script>
+	<div id="bzPhotoControls">
+		<span>Crop</span>
+		<button onclick="bzPhotoEditor.crop('Custom')">Custom</button>
+		<button onclick="bzPhotoEditor.crop('1:1')">1:1</button>
+		<button onclick="bzPhotoEditor.crop('16:9')">16:9</button>
+		<button onclick="bzPhotoEditor.crop('4:3')">4:3</button>
+		<br><span>Filter</span>
+		<button onclick="bzPhotoEditor.filter('Sepia')">Sepia</button>
+		<button onclick="bzPhotoEditor.filter('Grayscale')">Grayscale</button>
+		<button onclick="bzPhotoEditor.filter('Brightness')">Brightness</button>
+		<br><span>Rotate</span>
+		<button onclick="bzPhotoEditor.rotate('Left')">Left</button>
+		<button onclick="bzPhotoEditor.rotate('Right')">Right</button>
+		<button onclick="bzPhotoEditor.rotate('FlipH')">FlipH</button>
+		<button onclick="bzPhotoEditor.rotate('FlipV')">FlipV</button>
+		<br><span>Frame</span>
+	</div>
+	<canvas id="canvas"></canvas>
+	<script src="scripts/zepto.js"></script>
 	<script src="scripts/fabric.min.js"></script>
-	<script src="scripts/helpers.js"></script>
 	<script src="scripts/fabric.helper.js"></script>
-	<script src="scripts/main.js"></script>
+	<script src="scripts/bzphoto-editor.js"></script>
 </body>
 </html>
