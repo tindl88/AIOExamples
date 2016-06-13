@@ -91,7 +91,7 @@ var bzPhotoEditor = (function(){
 		settings.maxWidth = editorRect.width;
 		settings.maxHeight = editorRect.height;
 
-		canvas.addImage({unique:'mainPic', url:'images/test.jpg'}, function(img1){
+		canvas.addImage({unique:'mainPic', url:'images/download.jpg'}, function(img1){
 			resizeCanvas(img1);
 			editorImage.src = img1.getSrc();
 			editorImage.onload = function(){
@@ -102,7 +102,7 @@ var bzPhotoEditor = (function(){
 	}
 
 	function apply(){
-		editorImage.src = canvas.toDataURL('image/jpg');
+		editorImage.src = canvas.toDataURL();
 		setTimeout(resizeImage(editorImage), 200);
 	}
 
