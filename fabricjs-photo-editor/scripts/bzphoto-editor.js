@@ -83,7 +83,42 @@ var bzPhotoEditor = (function(){
 		canvas.renderAll();
 	}
 	function crop(type){
-
+		var resizableId = $( "#resizable");
+		var widthImg = $("#container-image").width();
+		var heightImg = $("#container-image").height();
+		if(type == 'Custom'){
+			resizableId.css({"display":"block"});
+			destroyResizable();
+			resizableId.resizable({
+		      containment: "#container-image"
+		    });
+		}
+		if(type == '1:1'){
+			resizableId.css({"display":"block"});
+			destroyResizable();
+			resizable();
+			var width = (widthImg/2);
+			resizableId.css({"width":width, "height":width});
+			resizableId.css({top: (heightImg - width)/2,left: (widthImg - width)/2});
+		}
+		if(type == '16:9'){
+			resizableId.css({"display":"block"});
+			destroyResizable();
+			resizable();
+			var width = (widthImg/2)* (16/9);
+			var height = (heightImg/2)* (16/9);
+			resizableId.css({"width":width, "height":height});
+			resizableId.css({top: (heightImg - height)/2,left: (widthImg - width)/2});
+		}
+		if(type == '4:3'){
+			resizableId.css({"display":"block"});
+			destroyResizable();
+			resizable();
+			var width = (widthImg/2)* (4/3);
+			var height = (heightImg/2)* (4/3);
+			resizableId.css({"width":width, "height":height});
+			resizableId.css({top: (heightImg - height)/2,left: (widthImg - width)/2});
+		}
 	}
 
 	function init(){
@@ -91,7 +126,8 @@ var bzPhotoEditor = (function(){
 		settings.maxWidth = editorRect.width;
 		settings.maxHeight = editorRect.height;
 
-		canvas.addImage({unique:'mainPic', url:'images/download.jpg'}, function(img1){
+		canvas.addImage({unique:'mainPic', url:'images/test.jpg'}, function(img1){
+			img1.crossOrigin = "Anonymous";
 			resizeCanvas(img1);
 			editorImage.src = img1.getSrc();
 			editorImage.onload = function(){
@@ -106,11 +142,46 @@ var bzPhotoEditor = (function(){
 		setTimeout(resizeImage(editorImage), 200);
 	}
 
+	function resizable(){
+		var resizableId = $( "#resizable");
+		resizableId.resizable({
+	      containment: "#container-image",
+	      aspectRatio: true
+	    });
+	}
+
+	function destroyResizable(){
+		var resizableId = $( "#resizable");
+		resizableId.resizable( "destroy" );
+	}
+
+	function draggable(){
+		var resizableId = $( "#resizable");
+		resizableId.draggable({ containment: "#container-image", scroll: false });
+	}
+
+	$(document).ready(function(){
+		resizable();
+		draggable();
+	});
+	$(window).load(function(){
+		setTimeout(function(){
+			var resizableId = $( "#resizable");
+			var widthImg = $("#container-image").width();
+			var heightImg = $("#container-image").height();
+			var width = (widthImg/2);
+			resizableId.css({"width":width, "height":width});
+			resizableId.css({top: (heightImg - width)/2,left: (widthImg - width)/2});
+		});
+	});
 	return {
 		init: init,
 		filter: filter,
 		rotate: rotate,
-		crop: crop
+		crop: crop,
+		resizable: resizable,
+		draggable: draggable,
+		destroyResizable: destroyResizable
 	};
 })();
 

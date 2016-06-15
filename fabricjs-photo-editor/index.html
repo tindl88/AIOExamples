@@ -1,15 +1,22 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="css/jquery-ui.css">
 	<style>
-		#bzPhotoEditor{margin:0 auto;width:320px;height:480px;background: #333;}
+		#bzPhotoEditor{margin:0 auto;width:320px;height:480px;background: #333;position: relative;}
 		#bzPhotoControls{width:320px;margin:0 auto;}
 		#canvas{display: none;}
+		#resizable{border:1px solid #11cce8;width: 150px;height:150px;position: absolute;top:0px;left: 0px; background: rgba(17,204,232,0.1);display: none;}
+		#resizable .ui-icon{background: rgba(17,204,232,0.7);    position: absolute;right: -10px;bottom: -10px;width: 20px;height: 20px;border-radius: 50%;}
+		#container-image{display: inline-block;position: relative;}
 	</style>
 </head>
 <body>
 	<div id="bzPhotoEditor">
-		<img id="editorImage">
+		<div id="container-image">
+			<img id="editorImage">
+			<div id="resizable" class="ui-state-active"></div>
+		</div>
 	</div>
 	<div id="bzPhotoControls">
 		<span>Crop</span>
@@ -29,6 +36,9 @@
 		<br><span>Frame</span>
 	</div>
 	<canvas id="canvas"></canvas>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery-ui.js"></script>
+	<script src="scripts/jquery-ui-touch.js"></script>
 	<script src="scripts/zepto.js"></script>
 	<script src="scripts/fabric.min.js"></script>
 	<script src="scripts/fabric.helper.js"></script>

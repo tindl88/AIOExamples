@@ -40,7 +40,7 @@ var bzSortJs = (function(){
 
 	function addAfter(id, data){
 		var idx = json.getIndexBy('id', id);
-		json.splice(idx, 0, data);
+		json.splice(idx + 1, 0, data);
 	}
 
 	function animIn(object, callback){
@@ -48,19 +48,29 @@ var bzSortJs = (function(){
 	}
 
 	function animOut(object, callback){
-		TweenMax.to(object, 0.3, {scale:0, width:0, onComplete: callback || $.noop()});
+		var tl = new TimelineMax({onComplete: callback || $.noop()});
+		tl.to(object, 0.3, {scale:0})
+		.to(object, 0.3, {width:0});
+	}
+
+	function getJSON(){
+		return JSON.stringify(json);
 	}
 
 	function generate(maxItem, data, callback){
 		var markup = '<div class="sort-list">';
 
 		for (var i = 0; i < json.length; i++) {
-			if(i % maxItem == 0 && i > 0){
+			if(i % maxItem === 0 && i > 0){
 				markup += '<div class="clearfix"></div></div><div class="sort-list">';
 			}
-			markup += '<div class="item'+(json[i].isFolder ? ' folder': '')+'" data-uid="'+json[i].id+'"><div class="inner"><div class="icon"></div><div class="caption text-center"><span>'+json[i].name+'</span></div></div></div>';
+			if(i % 2 === 0){
+				markup += '<div class="item'+(json[i].isFolder ? ' folder': '')+'" data-uid="'+json[i].id+'"><span>a</span><div class="inner"><div class="icon"></div><div class="caption text-center"><span>'+json[i].name+'</span></div></div><span>a</span></div>';
+			} else {
+				markup += '<div class="item'+(json[i].isFolder ? ' folder': '')+'" data-uid="'+json[i].id+'"><div class="inner"><div class="icon"></div><div class="caption text-center"><span>'+json[i].name+'</span></div></div><span>b</span></div>';
+			}
 		}
-		markup += '<div class="clearfix"></div></div>';
+		markup += '<div class="clearfix"></div></div><div class="clearfix"></div>';
 
 		$('.sort-viewport').html(markup);
 
@@ -71,6 +81,8 @@ var bzSortJs = (function(){
 				var idx = json.getIndexBy('id', parseInt(ui.helper.data().uid));
 				selectedItem.index = idx;
 				selectedItem.position = ui.offset;
+			},
+			stop: function( event, ui ) {
 			}
 		});
 
@@ -84,16 +96,17 @@ var bzSortJs = (function(){
 					console.log('Không thể kéo thả thư mục');
 				} else {
 					var id = parseInt(ui.draggable.data().uid);
-					animOut(ui.draggable, function(){
 
-						if(!isTargetFolder){
-							//addAfter(4, selItem);
-						} else {
-							var selItem = remove(id);
-						}
-
+					if(isTargetFolder){
+						remove(id);
 						init();
-					});
+					} else {
+						//var selItem = remove(id);
+						//var idx = json.getIndexBy('id', id);
+						//addAfter(id, selItem);
+						init();
+					}
+
 				}
 			},
 			deactivate: function( event, ui ) {
@@ -101,7 +114,14 @@ var bzSortJs = (function(){
 			}
 		});
 
-		$('#txtJson').text(JSON.stringify(json));
+		$('#txtJson').text(getJSON());
+
+		$('button').on('click', function(event) {
+			var id = parseInt($('.item').eq(0).data().uid);
+			var a = remove(id);
+			addAfter(4, a);
+			init();
+		});
 	}
 
 	return {
