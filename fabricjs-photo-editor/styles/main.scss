@@ -1,0 +1,166 @@
+.none{
+	display: none;
+}
+.browse{
+	position: absolute;
+	top:0;
+	left:0;
+	display: block;
+	font-weight:700;
+	font-size:20px;
+	padding:10px;
+}
+#bz-photo-editor{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	padding-bottom:110px;
+	background: #333;
+	color:#fff;
+	#bz-photo-main{
+		width:100%;
+		height: 100%;
+		display: table;
+		text-align: center;
+	}
+	#photo-container{
+		display: table-cell;
+		vertical-align: middle;
+	}
+	#container-image{
+		display: inline-block;
+		position: relative;
+	}
+	#bz-photo-footer{
+		position:absolute;
+		bottom:0;
+		width:100%;
+	}
+	#bz-photo-control{
+		background: #2b2b2b;
+		height:70px;
+		text-align: center;
+		padding:0px 10px;
+		position: relative;
+		.tb-inner{
+			overflow-x: auto;
+			overflow-y: hidden;
+			position: relative;
+		}
+		.tb-back{
+			position: absolute;
+			left:0;
+			top:0;
+			height:100%;
+			width:27px;
+			background:url(../images/photo-editor-ui/overview/back.png) no-repeat -3px center #2b2b2b;
+			z-index: 1;
+			cursor: pointer;
+		}
+		.tb-parent{
+			margin:0 auto;
+			width: -moz-max-content;
+			width: -webkit-max-content;
+			width: max-content;
+		}
+		.tb-child{
+			overflow-y: hidden;
+			overflow-x: auto;
+			width: -moz-max-content;
+			width: -webkit-max-content;
+			width: max-content;
+			margin:0 auto;
+			padding-left:20px;
+		}
+		.tb-item{
+			display: inline-block;
+			padding:10px;
+			cursor: pointer;
+			position: relative;
+			span{
+				display: block;
+				font-size: 10px;
+				color:#686868;
+			}
+			&.active{
+				&:after{
+					content:'';
+					position:absolute;
+					bottom:0;
+					left:0;
+					width:100%;
+					height:3px;
+					background: #3cadf0;
+				}
+				span{
+					color:#fff;
+				}
+			}
+		}
+		.tb-item-pic{
+			padding-left:0;
+			padding-right:0;
+			img{
+				width:50px;
+			}
+			span{
+				position: absolute;
+				bottom:10px;
+				text-shadow: 0 1px 3px #000;
+				left:0;
+				width: 100%;
+				text-align: center;
+				color:#fff;
+			}
+		}
+	}
+	#bz-photo-toolbar{
+		background: #1b1b1b;
+		position: relative;
+		h3{
+			font-size: 14px;
+			font-weight: normal;
+			text-transform: uppercase;
+			text-align: center;
+			padding:12px 40px;
+			margin:0;
+		}
+		.button{
+			background: red;
+			display: block;
+			border:none;
+			width:39px;
+			height:39px;
+			position: absolute;
+			top:0;
+			z-index: 1;
+			&.cancel{
+				left:0;
+			}
+			&.ok{
+				right:0;
+			}
+		}
+	}
+	#resizable {
+		border:1px solid #11cce8;
+		width: 150px;
+		height:150px;
+		position: absolute;
+		top:0px;
+		left: 0px;
+		background: rgba(17,204,232,0.1);
+		visibility: hidden;
+		.ui-icon{
+			background: rgba(17,204,232,0.7);
+			position: absolute;
+			right: -10px;
+			bottom: -10px;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+		}
+	}
+}
