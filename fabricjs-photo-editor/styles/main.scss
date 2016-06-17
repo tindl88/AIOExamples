@@ -10,12 +10,17 @@
 	font-size:20px;
 	padding:10px;
 }
+#canvas{
+	margin-left:320px;
+}
 #bz-photo-editor{
 	position:fixed;
 	top:0;
 	left:0;
 	width:100%;
 	height:100%;
+	max-width:320px;
+	max-height:480px;
 	padding-bottom:110px;
 	background: #333;
 	color:#fff;

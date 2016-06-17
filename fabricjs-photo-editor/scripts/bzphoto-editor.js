@@ -24,6 +24,10 @@
 	function photoEditor($timeout){
 		return {
 			link: function(scope, iElement, iAttrs){
+				var editorImage = document.getElementById('editor-image');
+				var container = iElement.find('#photo-container');
+				var resizer = iElement.find('#resizable');
+
 				var settings = {
 					maxWidth: 767,
 					maxHeight: 1023,
@@ -38,14 +42,13 @@
 					y: 0
 				};
 
-				var editorImage = document.getElementById('editor-image');
-				var container = iElement.find('#photo-container');
-				var resizer = iElement.find('#resizable');
-
-				init('images/test1.jpg');
+				var game, bg, bgRotate = 0;
 
 				scope.pe.init = init;
 				scope.pe.crop = crop;
+				scope.pe.rotate = rotate;
+
+				init('images/test1.jpg');
 
 				function resizeImage(image){
 					if(image.width > settings.maxWidth){
@@ -123,8 +126,20 @@
 						.data('uiResizable')._aspectRatio = true;
 						break;
 					}
-					// tính left
+
 					resizer.css({visibility: 'visible'});
+				}
+
+				function rotate(){
+					// bgRotate += 90;
+					// game.width = 125;
+					// game.height = 200;
+					// game.canvas.width = 125;
+					// game.canvas.height = 200;
+					// $('canvas').css({width:125, height:200});
+					var output = game.canvas.toDataURL('image/jpeg', 1.0);
+					//init(output);
+					$('#editor-image').attr('src', output);
 				}
 
 				function init(imgUrl){
@@ -139,6 +154,38 @@
 						resizer
 						.resizable({containment: '#editor-image', aspectRatio: false})
 						.draggable({containment: '#editor-image', scroll: false});
+
+						var config = {
+							width: currentImage.width,
+							height: currentImage.height,
+							renderer: Phaser.AUTO,
+							parent: 'canvas',
+							resolution: 1,
+							preserveDrawingBuffer: true
+						};
+						game = new Phaser.Game(config);
+						var Play = function(game){};
+
+						Play.prototype = {
+							render: function(){
+							},
+							preload:function(){
+								game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+								game.load.image('background', 'images/test1.jpg');
+							},
+							create:function(){
+								bg = game.add.sprite(0, 0, 'background');
+								bg.anchor.setTo(0.5, 0.5);
+								bg.x = bg.width / 2;
+								bg.y = bg.height / 2;
+							},
+							update:function(){
+								bg.angle = bgRotate;
+							}
+						};
+
+						game.state.add('Play', Play);
+						game.state.start('Play');
 					};
 				}
 			}

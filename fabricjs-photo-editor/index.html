@@ -1,5 +1,6 @@
 <html ng-app="bzApp">
 <head>
+	<title>Photo Editor</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" href="styles/bootstrap.min.css">
 	<link rel="stylesheet" href="styles/jquery-ui.css">
@@ -55,7 +56,7 @@
 						</div>
 					</div>
 					<div class="tb-child tb-for-rotate" ng-if="pe.command === 'rotate'">
-						<div class="tb-item active" ng-click="pe.sendCommand({action:'rotate', param:'left'})">
+						<div class="tb-item active" ng-click="pe.rotate({action:'rotate', param:'left'})">
 							<img src="images/photo-editor-ui/rotation/rotate-l.png">
 							<span>Left</span>
 						</div>
@@ -173,28 +174,13 @@
 				<span class="button ok" ng-if="pe.command !== 'editor'" ng-click="pe.sendCommand({action:'frame', param:'tatto', value:'images/tatto.png'})"">Yes</span>
 			</div>
 		</div>
+	<button ng-click="pe.rotate()">Rotate</button>
 	</div>
-	<div id="bzPhotoControls" style="display: none;">
-		<span>Crop</span>
-		<button onclick="bzPhotoEditor.crop('Custom')">Custom</button>
-		<button onclick="bzPhotoEditor.crop('1:1')">1:1</button>
-		<button onclick="bzPhotoEditor.crop('16:9')">16:9</button>
-		<button onclick="bzPhotoEditor.crop('4:3')">4:3</button>
-		<br><span>Filter</span>
-		<button onclick="bzPhotoEditor.filter('Sepia')">Sepia</button>
-		<button onclick="bzPhotoEditor.filter('Grayscale')">Grayscale</button>
-		<button onclick="bzPhotoEditor.filter('Brightness')">Brightness</button>
-		<br><span>Rotate</span>
-		<button onclick="bzPhotoEditor.rotate('Left')">Left</button>
-		<button onclick="bzPhotoEditor.rotate('Right')">Right</button>
-		<button onclick="bzPhotoEditor.rotate('FlipH')">FlipH</button>
-		<button onclick="bzPhotoEditor.rotate('FlipV')">FlipV</button>
-		<br><span>Frame</span>
-	</div>
-	<canvas id="canvas" class="none"></canvas>
+	<div id="canvas"></div>
 	<script src="scripts/jquery.min.js"></script>
 	<script src="scripts/jquery-ui.min.js"></script>
 	<script src="scripts/jquery-ui-touch.min.js"></script>
+	<script src="scripts/phaser.min.js"></script>
 	<script src="scripts/angular.min.js"></script>
 	<script src="scripts/bzphoto-editor.js"></script>
 </body>
