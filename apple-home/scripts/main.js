@@ -24,6 +24,7 @@ var json = [
 
 var bzSortJs = (function(){
 	var selectedItem = {};
+
 	$(document).ready(function() {
 		bzSortJs.init();
 	});
@@ -36,6 +37,11 @@ var bzSortJs = (function(){
 		var idx = json.getIndexBy('id', id);
 		var output = json.splice(idx, 1);
 		return output[0];
+	}
+
+	function addBefore(id, data){
+		var idx = json.getIndexBy('id', id);
+		json.splice(idx, 0, data);
 	}
 
 	function addAfter(id, data){
@@ -64,64 +70,96 @@ var bzSortJs = (function(){
 			if(i % maxItem === 0 && i > 0){
 				markup += '<div class="clearfix"></div></div><div class="sort-list">';
 			}
-			if(i % 2 === 0){
-				markup += '<div class="item'+(json[i].isFolder ? ' folder': '')+'" data-uid="'+json[i].id+'"><span>a</span><div class="inner"><div class="icon"></div><div class="caption text-center"><span>'+json[i].name+'</span></div></div><span>a</span></div>';
+			if(i % (maxItem / 2) === 0){
+				markup += '<div class="item'+(json[i].isFolder ? ' folder': '')+'" uid="'+json[i].id+'"><span class="side" ulocation="before" uid="'+json[i].id+'"></span><div class="inner"><div class="icon"></div><div class="caption text-center"><span>'+json[i].name+'</span></div></div><span class="side side-right" uid="'+json[i].id+'" ulocation="after"></span></div>';
 			} else {
-				markup += '<div class="item'+(json[i].isFolder ? ' folder': '')+'" data-uid="'+json[i].id+'"><div class="inner"><div class="icon"></div><div class="caption text-center"><span>'+json[i].name+'</span></div></div><span>b</span></div>';
+				markup += '<div class="item'+(json[i].isFolder ? ' folder': '')+'" uid="'+json[i].id+'"><div class="inner"><div class="icon"></div><div class="caption text-center"><span>'+json[i].name+'</span></div></div><span class="side side-right" uid="'+json[i].id+'" ulocation="after"></span></div>';
 			}
 		}
 		markup += '<div class="clearfix"></div></div><div class="clearfix"></div>';
 
 		$('.sort-viewport').html(markup);
 
-		$(".item").off();
+		$('.item').off();
 
-		$(".item").draggable({
-			start: function( event, ui ) {
+		$('.item').draggable({
+			snapMode: false,
+			snapTolerance: false,
+			scroll: false,
+			helper: '.aaa',
+			start: function(event, ui) {
 				var idx = json.getIndexBy('id', parseInt(ui.helper.data().uid));
 				selectedItem.index = idx;
 				selectedItem.position = ui.offset;
-			},
-			stop: function( event, ui ) {
+				ui.helper.addClass('dragging');
+				$('.screen').show();
+
+				// var clone = ui.helper;
+				// $('body').append(clone)
 			}
 		});
 
-		var a = 0;
-		$(".item").droppable({
+		// Kéo thả item vào folder
+		$('.item').droppable({
+			greedy: true,
+			tolerance: 'pointer',
 			drop: function(event, ui) {
+				var target = $(event.target);
+				console.log(target);
 				var isTargetFolder = $(event.target).hasClass('folder');
 				var isDragFolder = ui.draggable.hasClass('folder');
 
 				if(isDragFolder){
 					console.log('Không thể kéo thả thư mục');
 				} else {
-					var id = parseInt(ui.draggable.data().uid);
+					var id = parseInt(target.attr('uid'));
+					var location = target.attr('ulocation');
 
 					if(isTargetFolder){
 						remove(id);
 						init();
-					} else {
-						//var selItem = remove(id);
-						//var idx = json.getIndexBy('id', id);
-						//addAfter(id, selItem);
-						init();
+						console.log('Vào vừa kéo icon vào thư mục');
 					}
-
 				}
 			},
-			deactivate: function( event, ui ) {
-				TweenMax.to(ui.draggable, 0.5, {left:0, top:0});
+			deactivate: function(event, ui) {
+				TweenMax.to(ui.draggable, 0.5, {left:0, top:0, onComplete: function(){
+					ui.helper.removeClass('dragging');
+					$('.screen').hide();
+				}});
+			}
+		});
+
+		// Đổi vị trí các item
+		$('.side').droppable({
+			greedy: true,
+			tolerance: 'pointer',
+			drop: function(event, ui) {
+				var target = $(event.target);
+				var id = parseInt(target.attr('uid'));
+				console.log('Bạn vừa đổi vị trí icon');
+				var selItem = remove(id);
+				if(location === 'after'){
+					addAfter(id, selItem);
+				} else {
+					addBefore(id, selItem);
+				}
+				init();
+			}
+		});
+
+		// Chuyển đổi màn hình
+		$('.screen').droppable({
+			greedy: true,
+			tolerance: 'pointer',
+			over: function(event, ui) {
+				console.log(ui.draggable);
+				TweenMax.to($('.sort-viewport-wrap'), 0.5, {delay:0.5, scrollLeft: 300});
+				TweenMax.to(ui.draggable, 0.5, {delay:0.5, x: '+=300'});
 			}
 		});
 
 		$('#txtJson').text(getJSON());
-
-		$('button').on('click', function(event) {
-			var id = parseInt($('.item').eq(0).data().uid);
-			var a = remove(id);
-			addAfter(4, a);
-			init();
-		});
 	}
 
 	return {
