@@ -3,9 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ChartJs</title>
+	<link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-	<canvas id="myChart" width="400" height="400"></canvas>
+	<div id="chart-wrap">
+		<canvas id="myChart" width="400" height="400"></canvas>
+	</div>
 	<button onclick="chartJs.changePage(-1)">Prev</button>
 	<button onclick="chartJs.changePage(1)">Next</button>
 	<script src="scripts/jquery-2.2.1.min.js"></script>

@@ -49,7 +49,7 @@ var chartJs = (function(){
 				legend: {
 					display: false
 				},
-				responsive: false,
+				responsive: true,
 				scales: {
 					yAxes: [{
 						ticks: {
