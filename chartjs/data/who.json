@@ -1,0 +1,1478 @@
+{
+    "weight_girl":[
+  {
+    "month":0,
+    "lack": "2.8",
+    "normal":"3.2",
+    "redundancy": "3.7"
+  },
+ {
+    "month":1,
+    "lack": "3.6",
+    "normal":"4.2",
+    "redundancy": "4.8"
+  },
+  {
+    "month":2,
+    "lack": "4.5",
+    "normal":"5.1",
+    "redundancy": "5.8"
+  },
+  {
+    "month":3,
+    "lack": "5.2",
+    "normal":"5.8",
+    "redundancy": "6.6"
+  },
+  {
+    "month":4,
+    "lack": "5.7",
+    "normal":"6.4",
+    "redundancy": "7.3"
+  },
+  {
+    "month":5,
+    "lack": "6.1",
+    "normal":"6.9",
+    "redundancy": "7.8"
+  },
+  {
+    "month":6,
+    "lack": "6.5",
+    "normal":"7.3",
+    "redundancy": "8.2"
+  },
+  {
+    "month":7,
+    "lack": "6.8",
+    "normal":"7.6",
+    "redundancy": "8.6"
+  },
+  {
+    "month":8,
+    "lack": "7.0",
+    "normal":"7.9",
+    "redundancy": "9.0"
+  },
+  {
+    "month":9,
+    "lack": "7.3",
+    "normal":"8.2",
+    "redundancy": "9.3"
+  },
+  {
+    "month":10,
+    "lack": "7.5",
+    "normal":"8.5",
+    "redundancy": "9.6"
+  },
+  {
+    "month":11,
+    "lack": "7.7",
+    "normal":"8.7",
+    "redundancy": "9.9"
+  },
+  {
+    "month":12,
+    "lack": "7.9",
+    "normal":"8.9",
+    "redundancy": "10.1"
+  },
+  {
+    "month":13,
+    "lack": "8.1",
+    "normal":"9.2",
+    "redundancy": "10.4"
+  },
+ {
+    "month":14,
+    "lack": "8.3",
+    "normal":"9.4",
+    "redundancy": "10.6"
+  },
+  {
+    "month":15,
+    "lack": "8.5",
+    "normal":"9.6",
+    "redundancy": "10.9"
+  },
+  {
+    "month":16,
+    "lack": "8.7",
+    "normal":"9.8",
+    "redundancy": "11.1"
+  },
+  {
+    "month":17,
+    "lack": "8.9",
+    "normal":"10.0",
+    "redundancy": "11.4"
+  },
+  {
+    "month":18,
+    "lack": "9.1",
+    "normal":"10.2",
+    "redundancy": "11.6"
+  },
+  {
+    "month":19,
+    "lack": "9.2",
+    "normal":"10.4",
+    "redundancy": "11.8"
+  },
+  {
+    "month":20,
+    "lack": "9.4",
+    "normal":"10.6",
+    "redundancy": "12.1"
+  },
+  {
+    "month":21,
+    "lack": "9.6",
+    "normal":"10.9",
+    "redundancy": "12.3"
+  },
+  {
+    "month":22,
+    "lack": "9.8",
+    "normal":"11.1",
+    "redundancy": "12.5"
+  },
+  {
+    "month":23,
+    "lack": "10.0",
+    "normal":"11.3",
+    "redundancy": "12.8"
+  },
+  {
+    "month":24,
+    "lack": "10.2",
+    "normal":"11.5",
+    "redundancy": "13.0"
+  },
+  {
+    "month":25,
+    "lack": "10.3",
+    "normal":"11.7",
+    "redundancy": "13.3"
+  },
+  {
+    "month":26,
+    "lack": "10.5",
+    "normal":"11.9",
+    "redundancy": "13.5"
+  },
+ {
+    "month":27,
+    "lack": "10.7",
+    "normal":"12.1",
+    "redundancy": "13.7"
+  },
+  {
+    "month":28,
+    "lack": "10.9",
+    "normal":"12.3",
+    "redundancy": "14.0"
+  },
+  {
+    "month":29,
+    "lack": "11.1",
+    "normal":"12.5",
+    "redundancy": "14.2"
+  },
+  {
+    "month":30,
+    "lack": "11.2",
+    "normal":"12.7",
+    "redundancy": "14.4"
+  },
+  {
+    "month":31,
+    "lack": "11.4",
+    "normal":"12.9",
+    "redundancy": "14.7"
+  },
+  {
+    "month":32,
+    "lack": "11.6",
+    "normal":"13.1",
+    "redundancy": "14.9"
+  },
+  {
+    "month":33,
+    "lack": "11.7",
+    "normal":"13.3",
+    "redundancy": "15.1"
+  },
+  {
+    "month":34,
+    "lack": "11.9",
+    "normal":"13.5",
+    "redundancy": "15.4"
+  },
+  {
+    "month":35,
+    "lack": "12.0",
+    "normal":"13.7",
+    "redundancy": "15.6"
+  },
+  {
+    "month":36,
+    "lack": "12.2",
+    "normal":"13.9",
+    "redundancy": "15.8"
+  },
+  {
+    "month":37,
+    "lack": "12.4",
+    "normal":"14.0",
+    "redundancy": "16.0"
+  },
+  {
+    "month":38,
+    "lack": "12.5",
+    "normal":"14.2",
+    "redundancy": "16.3"
+  },
+  {
+    "month":39,
+    "lack": "12.7",
+    "normal":"14.4",
+    "redundancy": "16.5"
+  },
+ {
+    "month":40,
+    "lack": "12.8",
+    "normal":"14.6",
+    "redundancy": "16.7"
+  },
+  {
+    "month":41,
+    "lack": "13.0",
+    "normal":"14.8",
+    "redundancy": "16.9"
+  },
+  {
+    "month":42,
+    "lack": "13.1",
+    "normal":"15.0",
+    "redundancy": "17.2"
+  },
+  {
+    "month":43,
+    "lack": "13.3",
+    "normal":"15.2",
+    "redundancy": "17.4"
+  },
+  {
+    "month":44,
+    "lack": "13.4",
+    "normal":"15.3",
+    "redundancy": "17.6"
+  },
+  {
+    "month":45,
+    "lack": "13.6",
+    "normal":"15.5",
+    "redundancy": "17.8"
+  },
+  {
+    "month":46,
+    "lack": "13.7",
+    "normal":"15.7",
+    "redundancy": "18.1"
+  },
+  {
+    "month":47,
+    "lack": "13.9",
+    "normal":"15.9",
+    "redundancy": "18.3"
+  },
+  {
+    "month":48,
+    "lack": "14.0",
+    "normal":"16.1",
+    "redundancy": "18.5"
+  },
+  {
+    "month":49,
+    "lack": "14.2",
+    "normal":"16.3",
+    "redundancy": "18.8"
+  },
+  {
+    "month":50,
+    "lack": "14.3",
+    "normal":"16.4",
+    "redundancy": "19.0"
+  },
+  {
+    "month":51,
+    "lack": "14.5",
+    "normal":"16.6",
+    "redundancy": "19.2"
+  },
+  { 
+    "month":52,
+    "lack": "14.6",
+    "normal":"16.8",
+    "redundancy": "19.4"
+  },
+   { 
+    "month":53,
+    "lack": "14.8",
+    "normal":"17.0",
+    "redundancy": "19.7"
+  },
+   { 
+    "month":54,
+    "lack": "14.9",
+    "normal":"17.2",
+    "redundancy": "19.9"
+  },
+   { 
+    "month":55,
+    "lack": "15.1",
+    "normal":"17.3",
+    "redundancy": "20.1"
+  },
+ { 
+    "month":56,
+    "lack": "15.2",
+    "normal":"17.5",
+    "redundancy": "20.3"
+  },
+   { 
+    "month":57,
+    "lack": "15.3",
+    "normal":"17.7",
+    "redundancy": "20.6"
+  },
+   { 
+    "month":58,
+    "lack": "15.5",
+    "normal":"17.9",
+    "redundancy": "20.8"
+  },
+ { 
+    "month":59,
+    "lack": "15.6",
+    "normal":"18.0",
+    "redundancy": "21.0"
+  }
+  ,
+ { 
+    "month":60,
+    "lack": "15.8",
+    "normal":"18.4",
+    "redundancy": "21.4"
+  }
+],
+    "weight_boy":[
+  {
+    "month":0,
+    "lack": "2.9",
+    "normal":"3.3",
+    "redundancy": "3.9"
+  },
+ {
+    "month":1,
+    "lack": "3.9",
+    "normal":"4.5",
+    "redundancy": "5.1"
+  },
+  {
+    "month":2,
+    "lack": "4.9",
+    "normal":"5.6",
+    "redundancy": "6.3"
+  },
+  {
+    "month":3,
+    "lack": "5.7",
+    "normal":"6.4",
+    "redundancy": "7.2"
+  },
+  {
+    "month":4,
+    "lack": "6.2",
+    "normal":"7.0",
+    "redundancy": "7.8"
+  },
+  {
+    "month":5,
+    "lack": "6.7",
+    "normal":"7.5",
+    "redundancy": "8.4"
+  },
+  {
+    "month":6,
+    "lack": "7.1",
+    "normal":"7.9",
+    "redundancy": "8.8"
+  },
+  {
+    "month":7,
+    "lack": "7.4",
+    "normal":"8.3",
+    "redundancy": "9.2"
+  },
+  {
+    "month":8,
+    "lack": "7.7",
+    "normal":"8.6",
+    "redundancy": "9.6"
+  },
+  {
+    "month":9,
+    "lack": "8.0",
+    "normal":"8.9",
+    "redundancy": "9.9"
+  },
+  {
+    "month":10,
+    "lack": "8.2",
+    "normal":"9.2",
+    "redundancy": "10.2"
+  },
+  {
+    "month":11,
+    "lack": "8.4",
+    "normal":"9.4",
+    "redundancy": "10.5"
+  },
+  {
+    "month":12,
+    "lack": "8.6",
+    "normal":"9.6",
+    "redundancy": "10.8"
+  },
+  {
+    "month":13,
+    "lack": "8.8",
+    "normal":"9.9",
+    "redundancy": "11.0"
+  },
+ {
+    "month":14,
+    "lack": "9.0",
+    "normal":"10.1",
+    "redundancy": "11.3"
+  },
+  {
+    "month":15,
+    "lack": "9.2",
+    "normal":"10.3",
+    "redundancy": "11.5"
+  },
+  {
+    "month":16,
+    "lack": "9.4",
+    "normal":"10.5",
+    "redundancy": "11.7"
+  },
+  {
+    "month":17,
+    "lack": "9.6",
+    "normal":"10.7",
+    "redundancy": "12.0"
+  },
+  {
+    "month":18,
+    "lack": "9.8",
+    "normal":"10.9",
+    "redundancy": "12.2"
+  },
+  {
+    "month":19,
+    "lack": "10.0",
+    "normal":"11.1",
+    "redundancy": "12.5"
+  },
+  {
+    "month":20,
+    "lack": "10.1",
+    "normal":"11.3",
+    "redundancy": "12.7"
+  },
+  {
+    "month":21,
+    "lack": "10.3",
+    "normal":"11.5",
+    "redundancy": "12.9"
+  },
+  {
+    "month":22,
+    "lack": "10.5",
+    "normal":"11.8",
+    "redundancy": "13.2"
+  },
+  {
+    "month":23,
+    "lack": "10.7",
+    "normal":"12.0",
+    "redundancy": "13.4"
+  },
+  {
+    "month":24,
+    "lack": "10.8",
+    "normal":"12.2",
+    "redundancy": "13.6"
+  },
+  {
+    "month":25,
+    "lack": "11.0",
+    "normal":"12.4",
+    "redundancy": "13.9"
+  },
+  {
+    "month":26,
+    "lack": "11.2",
+    "normal":"12.5",
+    "redundancy": "14.1"
+  },
+ {
+    "month":27,
+    "lack": "11.3",
+    "normal":"12.7",
+    "redundancy": "14.3"
+  },
+  {
+    "month":28,
+    "lack": "11.5",
+    "normal":"12.9",
+    "redundancy": "14.5"
+  },
+  {
+    "month":29,
+    "lack": "11.7",
+    "normal":"13.1",
+    "redundancy": "14.8"
+  },
+  {
+    "month":30,
+    "lack": "11.8",
+    "normal":"13.3",
+    "redundancy": "15.0"
+  },
+  {
+    "month":31,
+    "lack": "12.0",
+    "normal":"13.5",
+    "redundancy": "15.2"
+  },
+  {
+    "month":32,
+    "lack": "12.1",
+    "normal":"13.7",
+    "redundancy": "15.4"
+  },
+  {
+    "month":33,
+    "lack": "12.3",
+    "normal":"13.8",
+    "redundancy": "15.6"
+  },
+  {
+    "month":34,
+    "lack": "12.4",
+    "normal":"14.0",
+    "redundancy": "15.8"
+  },
+  {
+    "month":35,
+    "lack": "12.6",
+    "normal":"14.2",
+    "redundancy": "16.0"
+  },
+  {
+    "month":36,
+    "lack": "12.7",
+    "normal":"14.3",
+    "redundancy": "16.2"
+  },
+  {
+    "month":37,
+    "lack": "12.9",
+    "normal":"14.5",
+    "redundancy": "16.4"
+  },
+  {
+    "month":38,
+    "lack": "13.0",
+    "normal":"14.7",
+    "redundancy": "16.6"
+  },
+  {
+    "month":39,
+    "lack": "13.1",
+    "normal":"14.8",
+    "redundancy": "16.8"
+  },
+ {
+    "month":40,
+    "lack": "13.3",
+    "normal":"15.0",
+    "redundancy": "17.0"
+  },
+  {
+    "month":41,
+    "lack": "13.4",
+    "normal":"15.2",
+    "redundancy": "17.2"
+  },
+  {
+    "month":42,
+    "lack": "13.6",
+    "normal":"15.3",
+    "redundancy": "17.4"
+  },
+  {
+    "month":43,
+    "lack": "13.7",
+    "normal":"15.5",
+    "redundancy": "17.6"
+  },
+  {
+    "month":44,
+    "lack": "13.8",
+    "normal":"15.7",
+    "redundancy": "17.8"
+  },
+  {
+    "month":45,
+    "lack": "14.0",
+    "normal":"15.8",
+    "redundancy": "18.0"
+  },
+  {
+    "month":46,
+    "lack": "14.1",
+    "normal":"16.0",
+    "redundancy": "18.2"
+  },
+  {
+    "month":47,
+    "lack": "14.3",
+    "normal":"16.2",
+    "redundancy": "18.4"
+  },
+  {
+    "month":48,
+    "lack": "14.4",
+    "normal":"16.3",
+    "redundancy": "18.6"
+  },
+  {
+    "month":49,
+    "lack": "14.5",
+    "normal":"16.5",
+    "redundancy": "18.8"
+  },
+  {
+    "month":50,
+    "lack": "14.7",
+    "normal":"16.7",
+    "redundancy": "19.0"
+  },
+  {
+    "month":51,
+    "lack": "14.8",
+    "normal":"16.8",
+    "redundancy": "19.2"
+  },
+  { 
+    "month":52,
+    "lack": "15.0",
+    "normal":"17.0",
+    "redundancy": "19.4"
+  },
+   { 
+    "month":53,
+    "lack": "15.1",
+    "normal":"17.2",
+    "redundancy": "19.6"
+  },
+   { 
+    "month":54,
+    "lack": "15.2",
+    "normal":"17.3",
+    "redundancy": "19.8"
+  },
+   { 
+    "month":55,
+    "lack": "15.4",
+    "normal":"17.5",
+    "redundancy": "20.0"
+  },
+ { 
+    "month":56,
+    "lack": "15.5",
+    "normal":"17.7",
+    "redundancy": "20.2"
+  },
+   { 
+    "month":57,
+    "lack": "15.6",
+    "normal":"17.8",
+    "redundancy": "20.4"
+  },
+   { 
+    "month":58,
+    "lack": "15.8",
+    "normal":"18.0",
+    "redundancy": "20.6"
+  },
+ { 
+    "month":59,
+    "lack": "15.9",
+    "normal":"18.2",
+    "redundancy": "20.8"
+  },
+ { 
+    "month":60,
+    "lack": "16.1",
+    "normal":"18.6",
+    "redundancy": "21.2"
+  }
+  
+],
+    "height_girl":[
+  {
+    "month":0,
+    "lack": "47.3",
+    "normal":"49.1",
+    "redundancy": "51.0"
+  },
+ {
+    "month":1,
+    "lack": "51.7",
+    "normal":"53.7",
+    "redundancy": "55.6"
+  },
+  {
+    "month":2,
+    "lack": "55.0",
+    "normal":"57.1",
+    "redundancy": "59.1"
+  },
+  {
+    "month":3,
+    "lack": "57.7",
+    "normal":"59.8",
+    "redundancy": "61.9"
+  },
+  {
+    "month":4,
+    "lack": "59.9",
+    "normal":"62.1",
+    "redundancy": "64.3"
+  },
+  {
+    "month":5,
+    "lack": "61.8",
+    "normal":"64.0",
+    "redundancy": "66.2"
+  },
+  {
+    "month":6,
+    "lack": "63.5",
+    "normal":"65.7",
+    "redundancy": "68.0"
+  },
+  {
+    "month":7,
+    "lack": "65.0",
+    "normal":"67.3",
+    "redundancy": "69.6"
+  },
+  {
+    "month":8,
+    "lack": "66.4",
+    "normal":"68.7",
+    "redundancy": "71.1"
+  },
+  {
+    "month":9,
+    "lack": "67.7",
+    "normal":"70.1",
+    "redundancy": "72.6"
+  },
+  {
+    "month":10,
+    "lack": "69.0",
+    "normal":"71.5",
+    "redundancy": "73.9"
+  },
+  {
+    "month":11,
+    "lack": "70.3",
+    "normal":"72.8",
+    "redundancy": "75.3"
+  },
+  {
+    "month":12,
+    "lack": "71.4",
+    "normal":"74.0",
+    "redundancy": "76.6"
+  },
+  {
+    "month":13,
+    "lack": "72.6",
+    "normal":"75.2",
+    "redundancy": "77.8"
+  },
+ {
+    "month":14,
+    "lack": "73.7",
+    "normal":"76.4",
+    "redundancy": "79.1"
+  },
+  {
+    "month":15,
+    "lack": "74.8",
+    "normal":"77.5",
+    "redundancy": "80.2"
+  },
+  {
+    "month":16,
+    "lack": "75.8",
+    "normal":"78.6",
+    "redundancy": "81.4"
+  },
+  {
+    "month":17,
+    "lack": "76.8",
+    "normal":"79.7",
+    "redundancy": "82.5"
+  },
+  {
+    "month":18,
+    "lack": "77.8",
+    "normal":"80.7",
+    "redundancy": "83.6"
+  },
+  {
+    "month":19,
+    "lack": "78.8",
+    "normal":"81.7",
+    "redundancy": "84.7"
+  },
+  {
+    "month":20,
+    "lack": "79.7",
+    "normal":"82.7",
+    "redundancy": "85.7"
+  },
+  {
+    "month":21,
+    "lack": "80.6",
+    "normal":"83.7",
+    "redundancy": "86.7"
+  },
+  {
+    "month":22,
+    "lack": "81.5",
+    "normal":"84.6",
+    "redundancy": "87.7"
+  },
+  {
+    "month":23,
+    "lack": "82.3",
+    "normal":"85.5",
+    "redundancy": "88.7"
+  },
+  {
+    "month":24,
+    "lack": "83.2",
+    "normal":"86.4",
+    "redundancy": "89.6"
+  },
+  {
+    "month":25,
+    "lack": "83.3",
+    "normal":"86.6",
+    "redundancy": "89.9"
+  },
+  {
+    "month":26,
+    "lack": "84.1",
+    "normal":"87.4",
+    "redundancy": "90.8"
+  },
+ {
+    "month":27,
+    "lack": "84.9",
+    "normal":"88.3",
+    "redundancy": "91.7"
+  },
+  {
+    "month":28,
+    "lack": "85.7",
+    "normal":"89.1",
+    "redundancy": "92.5"
+  },
+  {
+    "month":29,
+    "lack": "86.4",
+    "normal":"89.9",
+    "redundancy": "93.4"
+  },
+  {
+    "month":30,
+    "lack": "87.1",
+    "normal":"90.7",
+    "redundancy": "94.2"
+  },
+  {
+    "month":31,
+    "lack": "87.9",
+    "normal":"91.4",
+    "redundancy": "95.0"
+  },
+  {
+    "month":32,
+    "lack": "88.6",
+    "normal":"92.2",
+    "redundancy": "95.8"
+  },
+  {
+    "month":33,
+    "lack": "89.3",
+    "normal":"92.9",
+    "redundancy": "96.6"
+  },
+  {
+    "month":34,
+    "lack": "89.9",
+    "normal":"93.6",
+    "redundancy": "97.4"
+  },
+  {
+    "month":35,
+    "lack": "90.6",
+    "normal":"94.4",
+    "redundancy": "98.1"
+  },
+  {
+    "month":36,
+    "lack": "91.2",
+    "normal":"95.1",
+    "redundancy": "98.9"
+  },
+  {
+    "month":37,
+    "lack": "91.9",
+    "normal":"95.7",
+    "redundancy": "99.6"
+  },
+  {
+    "month":38,
+    "lack": "92.5",
+    "normal":"96.4",
+    "redundancy": "100.3"
+  },
+  {
+    "month":39,
+    "lack": "93.1",
+    "normal":"97.1",
+    "redundancy": "101.0"
+  },
+ {
+    "month":40,
+    "lack": "93.8",
+    "normal":"97.7",
+    "redundancy": "101.7"
+  },
+  {
+    "month":41,
+    "lack": "94.4",
+    "normal":"98.4",
+    "redundancy": "102.4"
+  },
+  {
+    "month":42,
+    "lack": "95.0",
+    "normal":"99.0",
+    "redundancy": "103.1"
+  },
+  {
+    "month":43,
+    "lack": "95.6",
+    "normal":"99.7",
+    "redundancy": "103.8"
+  },
+  {
+    "month":44,
+    "lack": "96.2",
+    "normal":"100.3",
+    "redundancy": "104.5"
+  },
+  {
+    "month":45,
+    "lack": "96.7",
+    "normal":"100.9",
+    "redundancy": "105.1"
+  },
+  {
+    "month":46,
+    "lack": "97.3",
+    "normal":"101.5",
+    "redundancy": "105.8"
+  },
+  {
+    "month":47,
+    "lack": "97.9",
+    "normal":"102.1",
+    "redundancy": "106.4"
+  },
+  {
+    "month":48,
+    "lack": "98.4",
+    "normal":"102.7",
+    "redundancy": "107.0"
+  },
+  {
+    "month":49,
+    "lack": "99.0",
+    "normal":"103.3",
+    "redundancy": "107.7"
+  },
+  {
+    "month":50,
+    "lack": "99.5",
+    "normal":"103.9",
+    "redundancy": "108.3"
+  },
+  {
+    "month":51,
+    "lack": "100.1",
+    "normal":"104.5",
+    "redundancy": "108.9"
+  },
+  { 
+    "month":52,
+    "lack": "100.6",
+    "normal":"105.0",
+    "redundancy": "109.5"
+  },
+   { 
+    "month":53,
+    "lack": "101.1",
+    "normal":"105.6",
+    "redundancy": "110.1"
+  },
+   { 
+    "month":54,
+    "lack": "101.6",
+    "normal":"106.2",
+    "redundancy": "110.7"
+  },
+   { 
+    "month":55,
+    "lack": "102.2",
+    "normal":"106.7",
+    "redundancy": "111.3"
+  },
+ { 
+    "month":56,
+    "lack": "102.7",
+    "normal":"107.3",
+    "redundancy": "111.9"
+  },
+   { 
+    "month":57,
+    "lack": "103.2",
+    "normal":"107.8",
+    "redundancy": "112.5"
+  },
+   { 
+    "month":58,
+    "lack": "103.7",
+    "normal":"108.4",
+    "redundancy": "113.0"
+  },
+ { 
+    "month":59,
+    "lack": "104.2",
+    "normal":"108.9",
+    "redundancy": "113.6"
+  },
+  { 
+    "month":60,
+    "lack": "104.7",
+    "normal":"109.4",
+    "redundancy": "114.2"
+  }
+  
+],
+    "height_boy":[
+  {
+    "month":0,
+    "lack": "48.0",
+    "normal":"49.9",
+    "redundancy": "51.8"
+  },
+ {
+    "month":1,
+    "lack": "52.8",
+    "normal":"54.7",
+    "redundancy": "56.7"
+  },
+  {
+    "month":2,
+    "lack": "56.4",
+    "normal":"58.4",
+    "redundancy": "60.4"
+  },
+  {
+    "month":3,
+    "lack": "59.4",
+    "normal":"61.4",
+    "redundancy": "63.5"
+  },
+  {
+    "month":4,
+    "lack": "61.8",
+    "normal":"63.9",
+    "redundancy": "66.0"
+  },
+  {
+    "month":5,
+    "lack": "63.8",
+    "normal":"65.9",
+    "redundancy": "68.0"
+  },
+  {
+    "month":6,
+    "lack": "65.5",
+    "normal":"67.6",
+    "redundancy": "69.8"
+  },
+  {
+    "month":7,
+    "lack": "67.0",
+    "normal":"69.2",
+    "redundancy": "71.3"
+  },
+  {
+    "month":8,
+    "lack": "68.4",
+    "normal":"70.6",
+    "redundancy": "72.8"
+  },
+  {
+    "month":9,
+    "lack": "69.7",
+    "normal":"72.0",
+    "redundancy": "74.2"
+  },
+  {
+    "month":10,
+    "lack": "71.0",
+    "normal":"73.3",
+    "redundancy": "75.6"
+  },
+  {
+    "month":11,
+    "lack": "72.2",
+    "normal":"74.5",
+    "redundancy": "76.9"
+  },
+  {
+    "month":12,
+    "lack": "73.4",
+    "normal":"75.7",
+    "redundancy": "78.1"
+  },
+  {
+    "month":13,
+    "lack": "74.5",
+    "normal":"76.9",
+    "redundancy": "79.3"
+  },
+ {
+    "month":14,
+    "lack": "75.6",
+    "normal":"78.0",
+    "redundancy": "80.5"
+  },
+  {
+    "month":15,
+    "lack": "76.6",
+    "normal":"79.1",
+    "redundancy": "81.7"
+  },
+  {
+    "month":16,
+    "lack": "77.6",
+    "normal":"80.2",
+    "redundancy": "82.8"
+  },
+  {
+    "month":17,
+    "lack": "78.6",
+    "normal":"81.2",
+    "redundancy": "83.9"
+  },
+  {
+    "month":18,
+    "lack": "79.6",
+    "normal":"82.3",
+    "redundancy": "85.0"
+  },
+  {
+    "month":19,
+    "lack": "80.5",
+    "normal":"83.2",
+    "redundancy": "86.0"
+  },
+  {
+    "month":20,
+    "lack": "81.4",
+    "normal":"84.2",
+    "redundancy": "87.0"
+  },
+  {
+    "month":21,
+    "lack": "82.3",
+    "normal":"85.1",
+    "redundancy": "88.0"
+  },
+  {
+    "month":22,
+    "lack": "83.1",
+    "normal":"86.0",
+    "redundancy": "89.0"
+  },
+  {
+    "month":23,
+    "lack": "83.9",
+    "normal":"86.9",
+    "redundancy": "89.9"
+  },
+  {
+    "month":24,
+    "lack": "84.8",
+    "normal":"87.8",
+    "redundancy": "90.2"
+  },
+  {
+    "month":25,
+    "lack": "84.9",
+    "normal":"88.0",
+    "redundancy": "91.1"
+  },
+  {
+    "month":26,
+    "lack": "85.6",
+    "normal":"88.8",
+    "redundancy": "92.0"
+  },
+ {
+    "month":27,
+    "lack": "86.4",
+    "normal":"89.6",
+    "redundancy": "92.9"
+  },
+  {
+    "month":28,
+    "lack": "87.1",
+    "normal":"90.4",
+    "redundancy": "93.7"
+  },
+  {
+    "month":29,
+    "lack": "87.8",
+    "normal":"91.2",
+    "redundancy": "94.5"
+  },
+  {
+    "month":30,
+    "lack": "88.5",
+    "normal":"91.9",
+    "redundancy": "95.3"
+  },
+  {
+    "month":31,
+    "lack": "89.2",
+    "normal":"92.7",
+    "redundancy": "96.1"
+  },
+  {
+    "month":32,
+    "lack": "89.9",
+    "normal":"93.4",
+    "redundancy": "96.9"
+  },
+  {
+    "month":33,
+    "lack": "90.5",
+    "normal":"94.1",
+    "redundancy": "97.6"
+  },
+  {
+    "month":34,
+    "lack": "91.1",
+    "normal":"94.8",
+    "redundancy": "98.4"
+  },
+  {
+    "month":35,
+    "lack": "91.8",
+    "normal":"95.4",
+    "redundancy": "99.1"
+  },
+  {
+    "month":36,
+    "lack": "92.4",
+    "normal":"96.1",
+    "redundancy": "99.8"
+  },
+  {
+    "month":37,
+    "lack": "93.0",
+    "normal":"96.7",
+    "redundancy": "100.5"
+  },
+  {
+    "month":38,
+    "lack": "93.6",
+    "normal":"97.4",
+    "redundancy": "101.2"
+  },
+  {
+    "month":39,
+    "lack": "94.2",
+    "normal":"98.0",
+    "redundancy": "101.8"
+  },
+ {
+    "month":40,
+    "lack": "94.7",
+    "normal":"98.6",
+    "redundancy": "102.5"
+  },
+  {
+    "month":41,
+    "lack": "95.3",
+    "normal":"99.2",
+    "redundancy": "103.2"
+  },
+  {
+    "month":42,
+    "lack": "95.9",
+    "normal":"99.9",
+    "redundancy": "103.8"
+  },
+  {
+    "month":43,
+    "lack": "96.4",
+    "normal":"100.4",
+    "redundancy": "104.5"
+  },
+  {
+    "month":44,
+    "lack": "97.0",
+    "normal":"101.0",
+    "redundancy": "105.1"
+  },
+  {
+    "month":45,
+    "lack": "97.5",
+    "normal":"101.6",
+    "redundancy": "105.7"
+  },
+  {
+    "month":46,
+    "lack": "98.1",
+    "normal":"102.2",
+    "redundancy": "106.3"
+  },
+  {
+    "month":47,
+    "lack": "98.6",
+    "normal":"102.8",
+    "redundancy": "106.9"
+  },
+  {
+    "month":48,
+    "lack": "99.1",
+    "normal":"103.3",
+    "redundancy": "107.5"
+  },
+  {
+    "month":49,
+    "lack": "99.7",
+    "normal":"103.9",
+    "redundancy": "108.1"
+  },
+  {
+    "month":50,
+    "lack": "100.2",
+    "normal":"104.4",
+    "redundancy": "108.7"
+  },
+  {
+    "month":51,
+    "lack": "100.7",
+    "normal":"105.0",
+    "redundancy": "109.3"
+  },
+  { 
+    "month":52,
+    "lack": "101.2",
+    "normal":"105.6",
+    "redundancy": "109.9"
+  },
+   { 
+    "month":53,
+    "lack": "101.7",
+    "normal":"106.1",
+    "redundancy": "110.5"
+  },
+   { 
+    "month":54,
+    "lack": "102.3",
+    "normal":"106.7",
+    "redundancy": "111.1"
+  },
+   { 
+    "month":55,
+    "lack": "102.8",
+    "normal":"107.2",
+    "redundancy": "111.7"
+  },
+ { 
+    "month":56,
+    "lack": "103.3",
+    "normal":"107.8",
+    "redundancy": "112.3"
+  },
+   { 
+    "month":57,
+    "lack": "103.8",
+    "normal":"108.3",
+    "redundancy": "112.8"
+  },
+   { 
+    "month":58,
+    "lack": "104.3",
+    "normal":"108.9",
+    "redundancy": "113.4"
+  },
+ { 
+    "month":59,
+    "lack": "104.8",
+    "normal":"109.4",
+    "redundancy": "114.0"
+  },
+   { 
+    "month":60,
+    "lack": "105.3",
+    "normal":"110.0",
+    "redundancy": "114.6"
+  }
+  
+]
+}

@@ -155,39 +155,51 @@
 						.resizable({containment: '#editor-image', aspectRatio: false})
 						.draggable({containment: '#editor-image', scroll: false});
 
-						var config = {
-							width: currentImage.width,
-							height: currentImage.height,
-							renderer: Phaser.AUTO,
-							parent: 'canvas',
-							resolution: 1,
-							preserveDrawingBuffer: true
-						};
-						game = new Phaser.Game(config);
-						var Play = function(game){};
-
-						Play.prototype = {
-							render: function(){
-							},
-							preload:function(){
-								game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
-								game.load.image('background', 'images/test1.jpg');
-							},
-							create:function(){
-								bg = game.add.sprite(0, 0, 'background');
-								bg.anchor.setTo(0.5, 0.5);
-								bg.x = bg.width / 2;
-								bg.y = bg.height / 2;
-							},
-							update:function(){
-								bg.angle = bgRotate;
-							}
-						};
-
-						game.state.add('Play', Play);
-						game.state.start('Play');
+						initPhaser();
 					};
 				}
+
+				function initPhaser(imgUrl){
+					var config = {
+						width: currentImage.width,
+						height: currentImage.height,
+						renderer: Phaser.AUTO,
+						parent: 'canvas',
+						resolution: 1,
+						preserveDrawingBuffer: true
+					};
+					game = new Phaser.Game(config);
+					var Play = function(game){};
+
+					Play.prototype = {
+						render: function(){
+						},
+						preload:function(){
+							game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+							//game.load.image('background', 'images/test1.jpg');
+						},
+						create:function(){
+							// bg = game.add.sprite(0, 0, 'background');
+							// bg.anchor.setTo(0.5, 0.5);
+							// bg.x = bg.width / 2;
+							// bg.y = bg.height / 2;
+						},
+						update:function(){
+							bg.angle = bgRotate;
+						}
+					};
+
+					game.state.add('Play', Play);
+					game.state.start('Play');
+				}
+
+				loader = new Phaser.Loader(game);
+				loader.image('someimage','/url/to/image');
+				loader.onLoadComplete.addOnce(onLoaded);
+				loader.start();
+				var onLoaded = function(){
+					console.log('everything is loaded and ready to be used');
+				};
 			}
 		};
 	}

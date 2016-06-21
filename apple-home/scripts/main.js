@@ -23,7 +23,9 @@ var json = [
 ];
 
 var bzSortJs = (function(){
-	var selectedItem = {};
+	var data = {
+		screen: 0
+	};
 
 	$(document).ready(function() {
 		bzSortJs.init();
@@ -80,27 +82,21 @@ var bzSortJs = (function(){
 
 		$('.sort-viewport').html(markup);
 
-		$('.item').off();
-
-		$('.item').draggable({
+		$('.item')
+		.off()
+		.draggable({
 			snapMode: false,
 			snapTolerance: false,
 			scroll: false,
-			helper: '.aaa',
 			start: function(event, ui) {
 				var idx = json.getIndexBy('id', parseInt(ui.helper.data().uid));
-				selectedItem.index = idx;
-				selectedItem.position = ui.offset;
+				data.index = idx;
+				data.position = ui.offset;
 				ui.helper.addClass('dragging');
 				$('.screen').show();
-
-				// var clone = ui.helper;
-				// $('body').append(clone)
 			}
-		});
-
-		// Kéo thả item vào folder
-		$('.item').droppable({
+		})
+		.droppable({
 			greedy: true,
 			tolerance: 'pointer',
 			drop: function(event, ui) {
@@ -153,9 +149,10 @@ var bzSortJs = (function(){
 			greedy: true,
 			tolerance: 'pointer',
 			over: function(event, ui) {
-				console.log(ui.draggable);
-				TweenMax.to($('.sort-viewport-wrap'), 0.5, {delay:0.5, scrollLeft: 300});
-				TweenMax.to(ui.draggable, 0.5, {delay:0.5, x: '+=300'});
+				var target = $(event.target);
+				var next = target.hasClass('next-screen');
+				TweenMax.to($('.sort-viewport-wrap'), 0.5, {delay:0.5, scrollLeft: next ? '+=300' : '-=300'});
+				TweenMax.to(ui.draggable, 0.5, {delay:0.5, x: next ? '+=300' : '-=300'});
 			}
 		});
 
