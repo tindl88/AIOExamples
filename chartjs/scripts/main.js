@@ -22,14 +22,14 @@ var chartJs = (function(){
 	}
 
 	function drawChart(allData, page){
-		var boyH = allData.height_boy;
+		var boyH = allData.weight_boy;
 		var startIndex = (page * itemPerPage) - itemPerPage;
 		var endIndex = page * itemPerPage;
 
 		var chartParams = {
 			labels: [],
 			datasets: [{
-				label: 'Height',
+				label: 'Weight',
 				data: [],
 				pointBackgroundColor: 'red',
 				borderColor:'red',
@@ -53,7 +53,9 @@ var chartJs = (function(){
 				scales: {
 					yAxes: [{
 						ticks: {
-							beginAtZero:true
+							suggestedMin: 1,
+							suggestedMax: 25,
+							beginAtZero:false
 						}
 					}]
 				}
