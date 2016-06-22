@@ -1,0 +1,20 @@
+.sf-navbar{background:none;height:42px;position:relative}
+.sf-navbar li{background:none;position:static}
+.sf-navbar a{border-top:none}
+.sf-navbar li ul{width:44em}
+.sf-navbar li li{position:relative}
+.sf-navbar li li ul{width:13em}
+.sf-navbar li li li{width:100%}
+.sf-navbar ul li{width:auto;float:left}
+.sf-navbar a,.sf-navbar a:visited{border:none}
+ul.sf-navbar .current ul{left:0;top:42px}
+ul.sf-navbar ul li:hover ul,ul.sf-navbar ul li.sfHover ul{left:0;top:31px}
+ul.sf-navbar .current ul ul{top:-999em}
+.sf-navbar li.current > a{color:#77E1FF}
+.sf-navbar li li.current > a{color:#FFF}
+.sf-navbar ul a > .sf-sub-indicator{background-position:0 -100px}
+.sf-navbar > li > ul{-moz-border-radius-bottomleft:0;-moz-border-radius-topright:0;-webkit-border-top-right-radius:0;-webkit-border-bottom-left-radius:0;width:100%;background:#468de9;border-top:solid 1px #eff1f2;padding:0}
+.sf-navbar ul li a{font-family:hongha;font-size:15px;padding:7px 24px 8px}
+.sf-navbar ul li ul li a{display:block;width:142px;height:15px;background:url(../img/bg_sub_menu.jpg) no-repeat;border:solid 1px #d1e2f9;border-top:none;padding:5px 0 5px 24px}
+ul.sf-navbar li li li:hover,ul.sf-navbar li li li.sfHover,.sf-navbar li li.current li.current,.sf-navbar ul li li a:focus,.sf-navbar ul li li a:hover,.sf-navbar ul li li a:active,.sfHover >a,.sf-menu >li >ul > li >a:hover{color:#83dffb}
+.sf-navbar ul .sf-sub-indicator,.sf-navbar ul a:focus > .sf-sub-indicator,.sf-navbar ul a:hover > .sf-sub-indicator,.sf-navbar ul a:active > .sf-sub-indicator,.sf-navbar ul li:hover > a > .sf-sub-indicator,.sf-navbar ul li.sfHover > a > .sf-sub-indicator{background-position:-10px -100px}

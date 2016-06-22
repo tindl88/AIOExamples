@@ -1,0 +1,6 @@
+﻿/* Reset CSS */
+.clrFix{clear:both;font-size:1px;line-height:0;height:0px;}
+.none{display:none !important;}
+
+/* Menu*/
+.content_nav{position:absolute;z-index:1;float:left;height:42px;background:url(../img/bg_nav.gif)}
