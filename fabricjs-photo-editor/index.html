@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="bz-photo-editor" ng-controller="photoEditorCtrl as pe" photo-editor>
-		<span class="browse" ng-click="pe.init('images/test3.jpg')">...</span>
+		<input id="browseFile" type="file" class="browse">
 		<div id="bz-photo-main">
 			<div id="photo-container">
 				<img id="editor-image">
@@ -60,97 +60,29 @@
 							<img src="images/photo-editor-ui/rotation/rotate-l.png">
 							<span>Left</span>
 						</div>
-						<div class="tb-item" ng-click="pe.sendCommand({action:'rotate', param:'right'})">
+						<div class="tb-item" ng-click="pe.rotate({action:'rotate', param:'right'})"">
 							<img src="images/photo-editor-ui/rotation/rotate-r.png">
 							<span>Right</span>
 						</div>
-						<div class="tb-item" ng-click="pe.sendCommand({action:'flip', param:'horizontal'})">
+						<div class="tb-item" ng-click="pe.rotate({action:'flip', param:'horizontal'})">
 							<img src="images/photo-editor-ui/rotation/flip-h.png">
 							<span>Flip H</span>
 						</div>
-						<div class="tb-item" ng-click="pe.sendCommand({action:'flip', param:'vertical'})">
+						<div class="tb-item" ng-click="pe.rotate({action:'flip', param:'vertical'})">
 							<img src="images/photo-editor-ui/rotation/flip-v.png">
 							<span>Flip V</span>
 						</div>
 					</div>
 					<div class="tb-child tb-for-filter" ng-if="pe.command === 'filter'">
-						<div class="tb-item tb-item-pic active" ng-click="pe.sendCommand({action:'filter', param:'sepia', value:null})">
+						<div class="tb-item tb-item-pic active" ng-click="pe.filter({action:'filter', param:'sepia', value:null})">
 							<img src="images/photo-editor-ui/filter/fixie.png">
 							<span>Sepia</span>
 						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
+						<div class="tb-item tb-item-pic" ng-click="pe.filter({action:'filter', param:'brightness', value:100})">
 							<img src="images/photo-editor-ui/filter/fixie.png">
 							<span>Sepia</span>
 						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
-						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'filter', param:'brightness', value:100})">
+						<div class="tb-item tb-item-pic" ng-click="pe.filter({action:'filter', param:'brightness', value:100})">
 							<img src="images/photo-editor-ui/filter/fixie.png">
 							<span>Sepia</span>
 						</div>
@@ -174,9 +106,8 @@
 				<span class="button ok" ng-if="pe.command !== 'editor'" ng-click="pe.sendCommand({action:'frame', param:'tatto', value:'images/tatto.png'})"">Yes</span>
 			</div>
 		</div>
-	<button ng-click="pe.rotate()">Rotate</button>
 	</div>
-	<div id="canvas"></div>
+	<div id="canvas" class="none1"></div>
 	<script src="scripts/jquery.min.js"></script>
 	<script src="scripts/jquery-ui.min.js"></script>
 	<script src="scripts/jquery-ui-touch.min.js"></script>
