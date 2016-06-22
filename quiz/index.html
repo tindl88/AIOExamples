@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body ng-controller="homeCtrl as home">
+	<div id="quizWrap" bz-quiz="0.1">
+		<h1 class="countdown"></h1>
+		<div class="item" key="{{question.id}}" ng-repeat="question in home.json.data.questions">
+			<p class="q">{{question.content}}</p>
+			<div class="ans-wrap" ng-repeat="answer in question.answers">
+				<label><input type="radio" name="optAnswer{{question.id}}" value="{{answer.correct}}">{{answer.content}}</label>
+			</div>
+		</div>
+		<button class="btnEndQuiz">End</button>
+	</div>
+	<script src="scripts/jquery-2.2.0.min.js"></script>
+	<script src="scripts/angular.min.js"></script>
+	<script src="scripts/data.js"></script>
+	<script src="scripts/main.js"></script>
+</body>
+</html>
