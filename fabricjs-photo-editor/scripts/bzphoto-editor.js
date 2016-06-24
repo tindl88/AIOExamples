@@ -67,8 +67,6 @@
 							recalc(this);
 							initDraggable();
 							initResizeable();
-
-							console.log(currentImage);
 						});
 					}
 				}
@@ -91,10 +89,11 @@
 						preload:function(){
 							game.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
 							game.load.image('background', 'images/blank.png');
-							game.load.script('gray', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/Gray.js');
-							game.load.script('sepia', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/pixi/SepiaFilter.js');
-							game.load.script('noise', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/pixi/NoiseFilter.js');
-							game.load.script('colorMatrix', 'https://cdn.rawgit.com/photonstorm/phaser/master/filters/pixi/ColorMatrixFilter.js');
+							game.load.script('gray', 'scripts/filters/Gray.js');
+							game.load.script('hue', 'scripts/filters/HueRotate.js');
+							game.load.script('sepia', 'scripts/filters/pixi/SepiaFilter.js');
+							game.load.script('noise', 'scripts/filters/pixi/NoiseFilter.js');
+							game.load.script('colorMatrix', 'scripts/filters/pixi/ColorMatrixFilter.js');
 						},
 						create:function(){
 							bg = game.add.sprite(0, 0, 'background');
@@ -134,32 +133,48 @@
 
 				}
 
-				function filter(type){
-					//bg.tint = Math.random() * 0xffffff;
-					//var gray = game.add.filter('Sepia');
-					var se = new PIXI.SepiaFilter();
-					se.sepia = 0.5;
+				function filter(data){
+					var filter;
+					bg.filters = null;
 
-					var no = new PIXI.NoiseFilter();
-					no.noise = 1;
+					switch(data.param){
+						case 'sepia':
+						filter = new PIXI.SepiaFilter();
+						filter.sepia = data.value;
+						break;
+						case 'gray':
+						filter = game.add.filter('Gray');
+						break;
+						case 'brightness':
+						var colorMatrix =  [
+						1, 0, 0, 0, 0,
+						0, 1, 0, 0, 0,
+						0, 0, 1, 0, 0,
+						0, 0, 0, 1, 0
+						];
+						filter = new PIXI.ColorMatrixFilter();
+						//filter.matrix = colorMatrix;
+						filter.brightness = 1.5;
+						break;
+						case 'noise':
+						filter = new PIXI.NoiseFilter();
+						filter.noise = data.value;
+						break;
+						case 'tint':
+						bg.tint = Math.random() * 0xffffff;
+						break;
+						case 'hue':
+						// filter = new PIXI.HueRotate();
+						// filter.hue = data.value;
+						console.log(new PIXI.filters.ColorMatrixFilter())
+						break;
+					}
 
-					var colorMatrix =  [
-					1,0,0,0.5,
-					0,1,0,0.5,
-					0,0,1,0.5,
-					0,0,0,1
-					];
+					if(data.param !== 'tint'){
+						bg.tint = 0xffffff;
+						bg.filters = [filter];
+					}
 
-					var colorMatrix =  [
-					1,0,0,-0.5,
-					0,1,0,-0.5,
-					0,0,1,-0.5,
-					0,0,0,1
-					];
-					var co = new PIXI.ColorMatrixFilter();
-					co.matrix = colorMatrix;
-
-					bg.filters = [co];
 					getBase64();
 				}
 

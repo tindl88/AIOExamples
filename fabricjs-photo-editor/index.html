@@ -74,17 +74,29 @@
 						</div>
 					</div>
 					<div class="tb-child tb-for-filter" ng-if="pe.command === 'filter'">
-						<div class="tb-item tb-item-pic active" ng-click="pe.filter({action:'filter', param:'sepia', value:null})">
+						<div class="tb-item tb-item-pic active" ng-click="pe.filter({action:'filter', param:'sepia', value:0.5})">
 							<img src="images/photo-editor-ui/filter/fixie.png">
 							<span>Sepia</span>
 						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.filter({action:'filter', param:'brightness', value:100})">
+						<div class="tb-item tb-item-pic active" ng-click="pe.filter({action:'filter', param:'gray', value:null})">
 							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
+							<span>Gray</span>
 						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.filter({action:'filter', param:'brightness', value:100})">
+						<div class="tb-item tb-item-pic" ng-click="pe.filter({action:'filter', param:'brightness', value:0.5})">
 							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Sepia</span>
+							<span>Brightness</span>
+						</div>
+						<div class="tb-item tb-item-pic" ng-click="pe.filter({action:'filter', param:'noise', value:0.3})">
+							<img src="images/photo-editor-ui/filter/fixie.png">
+							<span>Noise</span>
+						</div>
+						<div class="tb-item tb-item-pic" ng-click="pe.filter({action:'filter', param:'tint', value:'0xffffff'})">
+							<img src="images/photo-editor-ui/filter/fixie.png">
+							<span>Tint</span>
+						</div>
+						<div class="tb-item tb-item-pic" ng-click="pe.filter({action:'filter', param:'hue', value: 1})">
+							<img src="images/photo-editor-ui/filter/fixie.png">
+							<span>Hue</span>
 						</div>
 					</div>
 					<div class="tb-child tb-for-frame" ng-if="pe.command === 'frame'">
