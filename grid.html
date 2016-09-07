@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.common-grid {
+			width: 100%;
+			display: table;
+		}
+		.common-grid .col {
+			padding: 3px 10px;
+			display: table-cell;
+		}
+		.common-grid .grid-body{
+			display: table-row-group;
+		}
+		.common-grid .grid-footer{
+			display: table-footer-group;
+		}
+		.common-grid .grid-head{
+			display: table-header-group;
+		}
+		.common-grid .grid-head .col {
+			padding: 6px 10px;
+		}
+		.common-grid .grid-head .col.sort {
+			cursor: pointer;
+		}
+		.common-grid .grid-head .col i {
+			position: relative;
+			top: 2px;
+		}
+		.common-grid .grid-row {
+			display: table-row;
+		}
+		.common-grid .grid-row.selected {
+			background: rgba(255, 0, 0, 0.1);
+		}
+		.common-grid .grid-row .text-truncate {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		.common-grid .col-check {
+			width: 30px;
+		}
+		.common-grid .col-num {
+			width: 48px;
+		}
+		.common-grid .col-pic {
+			width: 100px;
+		}
+		.common-grid .col-publish {
+			width: 48px;
+		}
+		.common-grid .col-sort {
+			width: 48px;
+		}
+		.common-grid .col-control {
+			width: 120px;
+		}
+		.common-grid .txt-sort {
+			width: 48px;
+			text-align: center;
+		}
+		.common-grid .btn-sort {
+			vertical-align: middle;
+			font-size: 20px;
+			cursor: pointer;
+		}
+		.common-grid .grid-footer {
+			padding: 20px 0;
+			margin: 0;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="common-grid-wrap">
+		<div class="common-grid">
+			<div class="grid-sec grid-head">
+				<div class="grid-row">
+					<div class="col text-center col-check">
+						<label role="checkbox" for="chk-select-all" ng-click="post.selectItem('multiple')">
+							<input id="chk-select-all" name="chk-select-all" type="checkbox" ng-model="post.selectedAll" />
+							<i></i>
+							<span></span>
+						</label>
+					</div>
+					<div class="col col-num">
+						<span>STT</span>
+					</div>
+					<div class="col sort" ng-click="post.filter('name')">
+						<span>Tên</span>
+						<i ng-if="post.queryParams.sort.split('-')[0] === 'name'" class="glyphicon glyphicon-chevron-{{post.queryParams.sort.split('-')[1] === 'desc' ? 'up' : 'down'}}"></i>
+					</div>
+					<div  class="col col-image">
+						<span>Pic</span>
+					</div>
+					<div class="col col-publish sort" ng-click="post.filter('status')" width="100px">
+						<span>Publish</span>
+						<i ng-if="post.queryParams.sort.split('-')[0] === 'status'" class="glyphicon glyphicon-chevron-{{post.queryParams.sort.split('-')[1] === 'desc' ? 'up' : 'down'}}"></i>
+					</div>
+					<div class="col col-sort sort" ng-click="post.filter('sort')" width="100px">
+						<span>Thứ tự</span>
+						<i ng-if="post.queryParams.sort.split('-')[0] === 'sort'" class="glyphicon glyphicon-chevron-{{post.queryParams.sort.split('-')[1] === 'desc' ? 'up' : 'down'}}"></i>
+					</div>
+					<div class="col text-center col-control">
+						<span>Sửa/Xóa</span>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="grid-sec grid-body">
+				<div class="grid-row">
+					<div class="col col-check text-center">
+						<label role="checkbox" for="chk-select">
+							<input id="chk-select" name="chk-select" type="checkbox" />
+							<i></i>
+							<span></span>
+						</label>
+					</div>
+					<div class="col col-num">1</div>
+					<div class="col">
+						<a>Lorem ipsum dolor sit amet.</a>
+					</div>
+					<div class="col col-image">
+						<img ng-src="{{item.thumbnail}}">
+					</div>
+					<div class="col col-publish">
+						<label role="switcher">
+							<input type="checkbox">
+							<i></i>
+							<span></span>
+						</label>
+					</div>
+					<div class="col col-sort">
+						<input id="txtSort" name="txtSort" class="txt-sort" type="number" min="1" required />
+						<a class="btn-sort"><i class="glyphicon glyphicon-floppy-disk"></i></a>
+					</div>
+					<div class="col text-center col-control">
+						<button class="btn btn-xs btn-primary btn-edit">Sửa</button>
+						<button class="btn btn-xs btn-danger btn-delete">Xóa</button>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="grid-empty">
+			<p class="no-result text-center">Không có dữ liệu.</p>
+		</div>
+	</div>
+</body>
+</html>

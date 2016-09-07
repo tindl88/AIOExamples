@@ -24,18 +24,20 @@
 	function photoEditor($timeout){
 		return {
 			link: function(scope, iElement, iAttrs){
-				var container = iElement.find('#photo-container');
-				var editorImage = document.getElementById('editor-image');
+				var container = document.getElementById('photo-container');
 				var browseFile = iElement.find('#browseFile');
 				var resizer = iElement.find('#resizable');
+				var editorImage = document.getElementById('editor-image');
 				var settings = {
-					maxWidth: container.width(),
-					maxHeight: container.height(),
+					maxWidth: container.clientWidth,
+					maxHeight: container.clientHeight,
 					padding: 10
 				};
 
 				var currentImage = {
 					ratio: 1,
+					origWidth: 0,
+					origHeight: 0,
 					width: 0,
 					height: 0,
 					x: 0,
@@ -46,8 +48,10 @@
 				var game, bg;
 
 				scope.pe.crop = crop;
+				scope.pe.doCrop = doCrop;
 				scope.pe.rotate = rotate;
 				scope.pe.filter = filter;
+				scope.pe.save = save;
 
 				browseFile.on('change', uploadHandle);
 
@@ -56,19 +60,22 @@
 				function uploadHandle(){
 					var reader = new FileReader();
 					reader.readAsDataURL(browseFile[0].files[0]);
-					reader.onload = function (e) {
-						var imageUrl = e.target.result;
 
-						loadImage(imageUrl, function(){
-							game.scale.setGameSize(this.width, this.height);
-							game.cache.addImage('background', imageUrl, this);
+
+					reader.onload = function (e) {
+						var imgBase64 = e.target.result;
+						editorImage.src = imgBase64;
+						editorImage.onload = function(){
+							game.scale.setGameSize(editorImage.width, editorImage.height);
+							game.cache.addImage('background', imgBase64, editorImage);
 							bg.loadTexture('background', 0, 0);
-							resizeImage(this);
-							recalc(this);
-							initDraggable();
-							initResizeable();
-						});
-					}
+
+							resizeImage(editorImage, function(){
+							});
+
+							initDragAndResize();
+						};
+					};
 				}
 
 				function initPhaser(){
@@ -90,7 +97,6 @@
 							game.scale.scaleMode = Phaser.ScaleManager.NO_SCALE;
 							game.load.image('background', 'images/blank.png');
 							game.load.script('gray', 'scripts/filters/Gray.js');
-							game.load.script('hue', 'scripts/filters/HueRotate.js');
 							game.load.script('sepia', 'scripts/filters/pixi/SepiaFilter.js');
 							game.load.script('noise', 'scripts/filters/pixi/NoiseFilter.js');
 							game.load.script('colorMatrix', 'scripts/filters/pixi/ColorMatrixFilter.js');
@@ -107,26 +113,37 @@
 					game.state.start('Play');
 				}
 
-				function resizeImage(imageInst){
-					editorImage.src = imageInst.src;
-					editorImage.onload = function(){
-						if(editorImage.width > settings.maxWidth){
-							currentImage.ratio = settings.maxWidth / editorImage.width;
-							editorImage.style.maxWidth = editorImage.width * currentImage.ratio;
-						} else if(editorImage.height > settings.maxHeight){
-							currentImage.ratio = settings.maxHeight / editorImage.height;
-							editorImage.style.maxHeight = editorImage.height * currentImage.ratio;
-						} else {
-							currentImage.ratio = 1;
-						}
-					};
-				}
+				function resizeImage(img, callback) {
+					img.removeAttribute('style');
 
-				function recalc(imageInst){
-					currentImage.width = imageInst.width;
-					currentImage.height = imageInst.height;
-					currentImage.x = imageInst.offsetLeft;
-					currentImage.y = imageInst.offsetTop;
+					var srcWidth = img.width;
+					var srcHeight = img.height;
+
+					var resizeWidth = srcWidth;
+					var resizeHeight = srcHeight;
+
+					var ratio = resizeWidth / resizeHeight;
+
+					if (resizeWidth > settings.maxWidth) {
+						resizeWidth = settings.maxWidth;
+						resizeHeight = resizeWidth / ratio;
+					}
+
+					if (resizeHeight > settings.maxHeight) {
+						ratio = resizeWidth / resizeHeight;
+						resizeHeight = settings.maxHeight;
+						resizeWidth = resizeHeight * ratio;
+					}
+
+					img.style.maxWidth = resizeWidth;
+					img.style.maxHeight = resizeHeight;
+
+					// Current image
+					currentImage.ratio = ratio;
+
+					if(typeof callback === 'function'){
+						callback();
+					}
 				}
 
 				function frame(type){
@@ -164,8 +181,6 @@
 						bg.tint = Math.random() * 0xffffff;
 						break;
 						case 'hue':
-						// filter = new PIXI.HueRotate();
-						// filter.hue = data.value;
 						console.log(new PIXI.filters.ColorMatrixFilter())
 						break;
 					}
@@ -179,26 +194,31 @@
 				}
 
 				function rotate(data){
+					var angle = bg.angle;
+
 					if(data.action === 'rotate'){
 						bg.anchor.setTo(0.5, 0.5);
-						bg.angle = data.param === 'left' ? bg.angle - 90 : bg.angle + 90;
-
-						if(bg.angle === -180 || bg.angle === 0){
-							game.scale.setGameSize(currentImage.width, currentImage.height);
-							bg.x = currentImage.width / 2;
-							bg.y = currentImage.height / 2;
-
+						bg.angle = data.param === 'left' ? angle - 90 : angle + 90;
+						if(angle === -180 || angle === 0){
+							game.scale.setGameSize(bg.texture.height, bg.texture.width);
+							bg.x = bg.texture.height / 2;
+							bg.y = bg.texture.width / 2;
 						} else {
-							game.scale.setGameSize(currentImage.height, currentImage.width);
-							bg.x = currentImage.height / 2;
-							bg.y = currentImage.width / 2;
+							game.scale.setGameSize(bg.texture.width, bg.texture.height);
+							bg.x = bg.texture.width / 2;
+							bg.y = bg.texture.height / 2;
 						}
 					}
 
 					if(data.action === 'flip'){
-						bg.anchor.setTo(0, 0);
-						bg.x = 0;
-						bg.y = 0;
+						bg.anchor.setTo(0.5, 0.5);
+						if(angle === -180 || angle === 0){
+							bg.x = bg.texture.width / 2;
+							bg.y = bg.texture.height / 2;
+						} else {
+							bg.x = bg.texture.height / 2;
+							bg.y = bg.texture.width / 2;
+						}
 
 						if(data.param === 'horizontal'){
 							bg.scale.x *= -1;
@@ -213,47 +233,47 @@
 				function crop(type){
 					switch(type){
 						case 'custom':
-						var size = (currentImage.width / 1) * 1;
+						var size = (editorImage.width / 1) * 1;
 						resizer
 						.css({
-							left: currentImage.x + settings.padding,
-							top: currentImage.y + settings.padding,
-							width: currentImage.width - (settings.padding * 2),
-							height: currentImage.height - (settings.padding * 2)
+							left: editorImage.offsetLeft + settings.padding,
+							top: editorImage.offsetTop + settings.padding,
+							width: editorImage.width - (settings.padding * 2),
+							height: editorImage.height - (settings.padding * 2)
 						})
 						.data('uiResizable')._aspectRatio = false;
 						break;
 						case '1:1':
-						var w = (currentImage.width > currentImage.height ? currentImage.height : currentImage.width);
+						var w = (editorImage.width > editorImage.height ? editorImage.height : editorImage.width);
 						var size = (w / 1) * 1;
 						resizer
 						.css({
-							left: (currentImage.x + ((currentImage.width) / 2)) - (size / 2),
-							top: (currentImage.y + ((currentImage.height) / 2)) - (size / 2),
+							left: (editorImage.offsetLeft + ((editorImage.width) / 2)) - (size / 2),
+							top: (editorImage.offsetTop + ((editorImage.height) / 2)) - (size / 2),
 							width: w,
 							height: size
 						})
 						.data('uiResizable')._aspectRatio = true;
 						break;
 						case '16:9':
-						var w = (currentImage.width > currentImage.height ? currentImage.height : currentImage.width);
+						var w = (editorImage.width > editorImage.height ? editorImage.height : editorImage.width);
 						var size = (w / 16) * 9;
 						resizer
 						.css({
-							left: (currentImage.x + (currentImage.width) / 2) - (w / 2),
-							top: (currentImage.y + ((currentImage.height) / 2)) - (size / 2),
+							left: (editorImage.offsetLeft + (editorImage.width) / 2) - (w / 2),
+							top: (editorImage.offsetTop + ((editorImage.height) / 2)) - (size / 2),
 							width: w,
 							height: size
 						})
 						.data('uiResizable')._aspectRatio = true;
 						break;
 						case '4:3':
-						var w = (currentImage.width > currentImage.height ? currentImage.height : currentImage.width);
+						var w = (editorImage.width > editorImage.height ? editorImage.height : editorImage.width);
 						var size = (w / 4) * 3;
 						resizer
 						.css({
-							left: (currentImage.x + (currentImage.width) / 2) - (w / 2),
-							top: (currentImage.y + ((currentImage.height) / 2)) - (size / 2),
+							left: (editorImage.offsetLeft + (editorImage.width) / 2) - (w / 2),
+							top: (editorImage.offsetTop + ((editorImage.height) / 2)) - (size / 2),
 							width: w,
 							height: size
 						})
@@ -264,26 +284,57 @@
 					resizer.css({visibility: 'visible'});
 				}
 
-				function loadImage(imageUrl, callback){
-					var image = new Image();
-					image.src = imageUrl;
-					image.onload = callback || angular.noop();
-					return image;
+				function doCrop(){
+
 				}
 
-				function initDraggable(){
-					resizer.draggable({containment: '#editor-image', scroll: false});
+				var cropStep = 0;
+				function save() {
+					switch(scope.pe.command){
+						case 'crop':
+						if(cropStep > 2) return;
+						cropStep++;
+
+						if(cropStep === 1){
+							var rect = resizer[0].getBoundingClientRect();
+							var cropRect = new Phaser.Rectangle(0, 0, rect.width, rect.height);
+							bg.crop(cropRect);
+							game.scale.setGameSize(rect.width, rect.height);
+							getBase64();
+						}
+
+						if(cropStep === 2){
+							scope.pe.command = 'editor';
+						}
+						console.log(cropStep);
+						break;
+						case 'rotate':
+						alert('rotate')
+						break;
+						case 'filter':
+						alert('filter')
+						break;
+						case 'frame':
+						alert('frame')
+						break;
+					}
 				}
 
-				function initResizeable(){
-					resizer.resizable({containment: '#editor-image', aspectRatio: false})
+				function initDragAndResize(){
+					resizer
+					.removeAttr('style')
+					.draggable({containment: '#editor-image', scroll: false})
+					.resizable({containment: '#editor-image', aspectRatio: false});
 				}
 
 				function getBase64(){
 					$timeout(function(){
-						var output = game.canvas.toDataURL('image/jpeg', 1.0);
-						$('#editor-image').attr('src', output);
-					}, 100);
+						var imgBase64 = game.canvas.toDataURL();
+						editorImage.src = imgBase64;
+						editorImage.onload = function(){
+							resizeImage(editorImage);
+						};
+					}, 200);
 				}
 			}
 		};

@@ -1,0 +1,29 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+.canvasWrap{
+	position: relative;
+	width: 344px;
+}
+canvas{
+	position: absolute;
+}
+#canvas{
+	top:0;
+	left: 6.5px;
+}
+#canvas1{
+	top: 68px;
+	left: 50%;
+	margin-left: -109px;
+}
+#canvas2{
+	top: 92px;
+	left: 0px;
+}
+#canvas3{
+	top: 127.2px;
+	left: 50%;
+	margin-left: -56.5px;
+}

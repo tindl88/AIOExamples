@@ -1,0 +1,28 @@
+html{
+	height:100%;
+	overflow: hidden;
+}
+body{
+	height:100%;
+	position: relative;
+	overflow: hidden;
+	font-family: Arial;
+}
+#mod-csoon{
+	height:100%;
+}
+.controls{
+	position: fixed;
+	top:0;
+	left:0;
+	z-index: 10;
+}
+.item{
+	height: 100%;
+}
+form{
+	height:200px;
+	width:100%;
+	background: #ccc;
+	display: none;
+}

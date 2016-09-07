@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		body {
+			margin: 0px;
+			padding: 0px;
+		}
+		.canvasWrap{
+			position: relative;;
+		}
+		.canvasWrap canvas{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="canvasWrap">
+		<canvas id="myCanvas" width="344" height="469"></canvas>
+		<canvas id="myCanvas1" width="344" height="469"></canvas>
+		<canvas id="myCanvas2" width="344" height="469"></canvas>
+		<canvas id="myCanvas3" width="344" height="469"></canvas>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<input type="button" id="btnLoad" value="Play">
+	<script>
+		var ctx = document.getElementById('myCanvas').getContext('2d');
+		var ctx1 = document.getElementById('myCanvas1').getContext('2d');
+		var ctx2 = document.getElementById('myCanvas2').getContext('2d');
+		var ctx3 = document.getElementById('myCanvas3').getContext('2d');
+
+		var imageObj = new Image();
+		imageObj.src = 'demo.png';
+
+		function drawImage(context, data, rotate, imageLeft, imageTop){
+			var x = context.canvas.width / 2;
+			var y = context.canvas.height / 2;
+			context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+			context.save();
+			context.beginPath();
+			for (var i = 0; i < data.length; i += 2) {
+				context.lineTo(data[i], data[i+1]);
+			};
+			context.closePath();
+			context.clip();
+			context.translate(x, y);
+			context.rotate(rotate);
+			context.drawImage(imageObj, imageLeft, imageLeft);
+			context.restore();
+		}
+
+		function draw(context, data, fillColor){
+			var x = context.canvas.width / 2;
+			var y = context.canvas.height / 2;
+			context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+			context.save();
+			context.beginPath();
+			for (var i = 0; i < data.length; i += 2) {
+				context.lineTo(data[i], data[i+1]);
+			};
+			context.closePath();
+			context.fillStyle = fillColor;
+			context.fill();
+			context.clip();
+			context.restore();
+		}
+
+		var point = {
+			x:0,
+			y:0
+		};
+		var point1 = {
+			x:-500,
+			y:0
+		};
+		var point2 = {
+			x:-500,
+			y:0
+		};
+
+		var data = [278,122,336,89,340,96,343,104,344,110,344,258,341,269,338,277,331,287,323,294,246,338,318,379,327,387,334,394,339,403,344,416,344,456,342,463,337,468,330,469,325,469,75,326,74,410,73,419,70,428,66,436,60,442,52,450,19,469,10,469,6,466,1,459,0,451,0,109,3,100,5,94,8,89,66,122,64,127,62,134,61,143,62,231,65,239,70,247,75,253,165,304,171,305,178,304,271,250,277,242,280,232,280,132,279,128];
+		var data1 = [167,63,176,63,185,65,267,113,274,118,278,125,280,133,280,230,279,237,276,245,271,250,185,300,179,302,171,303,163,302,156,299,74,252,69,246,65,241,62,234,63,131,65,125,67,120,72,115,159,65];
+		var data2 = [8,90,65,123,70,117,74,114,160,65,166,63,172,63,177,63,184,66,267,112,272,116,278,124,337,90,332,84,325,78,319,74,194,4,188,2,180,0,173,0,166,0,159,1,25,74,17,79,12,84];
+		var data3 = [180,124,214,142,221,148,224,154,227,161,227,200,226,205,224,211,221,215,216,221,182,240,175,242,165,242,156,240,126,221,122,216,119,211,116,205,115,200,115,163,117,156,120,151,125,146,131,142,162,124,169,123,175,123];
+		document.getElementById('btnLoad').onclick = function(){
+			var duration = 2;
+
+			TweenMax.to(point, duration, {x:-800,y:-940, onUpdate: function () {
+				drawImage(ctx, data, 180, point.x, point.y);
+			}});
+
+			TweenMax.to(point1, duration, {x:-800,y:-940, onUpdate: function () {
+				drawImage(ctx1, data1, 0, point1.x, point1.y);
+			}});
+
+			TweenMax.to(point2, duration, {x:-800,y:-940, onUpdate: function () {
+				drawImage(ctx2, data2, -180, point2.x, point2.y);
+			}});
+
+			draw(ctx3, data3, '#FF0000');
+		};
+	</script>
+	<script src="TweenMax.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+	<style>
+		.mod-drag{
+			width:500px;
+		}
+		.item{
+			float:left;
+			width:105px;
+			height:70px;
+			margin:10px;
+			background: #ccc;
+		}
+		.folder-expaned{
+			clear: both;
+			margin:10px 10px 0;
+			height:60px;
+			background: #ccc;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="mod-drag">
+		<div class="folder-expaned">
+			<div class="your-class">
+				<div>your content</div>
+				<div>your content</div>
+				<div>your content</div>
+			</div>
+		</div>
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+		<div class="item">4</div>
+		<div class="item">5</div>
+		<div class="item">6</div>
+		<div class="item">7</div>
+		<div class="item">8</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+	<script>
+		$(function(){
+			var mod = $('.mod-drag');
+			var items = mod.find('.item');
+			var folder = mod.find('.folder-expaned');
+			var slider;
+
+			items.on('click', function(event) {
+				// Tìm tất cả item
+				items = mod.find('.item');
+
+				// Lấy left top, đối tuợng vừa click
+				var selectedItem = $(this).position();
+
+				// Lọc các đối tuợng có top giống đối tượng vừa click
+				var itemsSameTopValue = items.filter(function(i, item){
+					if($(item).position().top === selectedItem.top){
+						return item;
+					}
+				});
+
+				// Lấy đối tuợng có left lớn nhất (item cuối)
+				var lastItem = $(itemsSameTopValue[itemsSameTopValue.length - 1]);
+
+				// Move folder ra sau item cuối
+				folder.insertAfter(lastItem);
+
+				// Hiện folder và khởi tạo slick bên trong
+				folder.fadeIn(300, function(){
+					if(slider){
+						console.log('unslick');
+						$('.your-class').slick('unslick');
+					}
+					console.log('slick');
+					slider = $('.your-class').slick();
+				});
+
+			});
+		});
+	</script>
+</body>
+</html>

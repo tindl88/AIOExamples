@@ -11,8 +11,8 @@
 		<input id="browseFile" type="file" class="browse">
 		<div id="bz-photo-main">
 			<div id="photo-container">
-				<img id="editor-image">
-				<div id="resizable" class="ui-state-active"></div>
+				<img id="editor-image" src="images/blank.png">
+				<div id="resizable" ng-show="pe.command === 'crop'" class="ui-state-active"></div>
 			</div>
 		</div>
 		<div id="bz-photo-footer">
@@ -94,10 +94,6 @@
 							<img src="images/photo-editor-ui/filter/fixie.png">
 							<span>Tint</span>
 						</div>
-						<div class="tb-item tb-item-pic" ng-click="pe.filter({action:'filter', param:'hue', value: 1})">
-							<img src="images/photo-editor-ui/filter/fixie.png">
-							<span>Hue</span>
-						</div>
 					</div>
 					<div class="tb-child tb-for-frame" ng-if="pe.command === 'frame'">
 						<div class="tb-item tb-item-pic" ng-click="pe.sendCommand({action:'frame', param:'rabbit', value:'images/rabbit.png'})">
@@ -113,9 +109,9 @@
 				</div>
 			</div>
 			<div id="bz-photo-toolbar">
-				<span class="button cancel" ng-if="pe.command !== 'editor'">No</span>
+				<span class="button cancel" ng-click="pe.command = 'editor'" ng-if="pe.command !== 'editor'">No</span>
 				<h3 ng-bind="pe.command"></h3>
-				<span class="button ok" ng-if="pe.command !== 'editor'" ng-click="pe.sendCommand({action:'frame', param:'tatto', value:'images/tatto.png'})"">Yes</span>
+				<span class="button ok" ng-if="pe.command !== 'editor'" ng-click="pe.save()">Yes</span>
 			</div>
 		</div>
 	</div>
