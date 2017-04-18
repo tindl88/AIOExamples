@@ -1,201 +1,69 @@
 var fakeData = {
-
-	"success":true,
-	"data":{
-		"id":"1",
-		"name":"\u0110\u1ec1 ki\u1ec3m tra 60ph ch\u01b0\u01a1ng 3+4",
-		"slug":"",
-		"description":"",
-		"content":"<p>B\u00e0i ki\u1ec3m tra ch\u01b0\u01a1ng 3+4<\/p>\n",
-		"user_id":"1",
-		"status":"0",
-		"created_at":"2016-01-11 04:54:18",
-		"updated_at":"2016-01-11 04:54:18",
-		"questions":[
-		{
-			"id":"1",
-			"content":"<p>1 + 1 = ?<\/p>\n",
-			"user_id":"1",
-			"parent_id":null,
-			"status":"1",
-			"created_at":"2016-01-25 07:11:21",
-			"updated_at":"2016-01-25 07:11:21",
-			"answers":[
-			{
-				"id":"1",
-				"content":"<p>2<\/p>\n",
-				"question_id":"1",
-				"correct":"1",
-				"status":"0",
-				"order":"0",
-				"created_at":"2016-01-25 07:12:31",
-				"updated_at":"2016-01-26 02:52:15"
-			},
-			{
-				"id":"3",
-				"content":"<p>3<\/p>\n",
-				"question_id":"1",
-				"correct":"0",
-				"status":"0",
-				"order":"0",
-				"created_at":"2016-01-25 07:13:11",
-				"updated_at":"2016-01-25 07:13:11"
-			},
-			{
-				"id":"5",
-				"content":"<p>9<\/p>\n",
-				"question_id":"1",
-				"correct":"0",
-				"status":"0",
-				"order":"0",
-				"created_at":"2016-01-26 02:54:04",
-				"updated_at":"2016-01-26 02:54:04"
-			}
-			],
-			"pivot":{
-				"test_id":"1",
-				"question_id":"1",
-				"order":"0"
-			}
-		},
-		{
-			"id":"2",
-			"content":"<p>2 + 2 = ?<\/p>\n",
-			"user_id":"1",
-			"parent_id":null,
-			"status":"1",
-			"created_at":"2016-01-25 07:11:58",
-			"updated_at":"2016-01-25 07:11:58",
-			"answers":[
-			{
-				"id":"2",
-				"content":"<p>4<\/p>\n",
-				"question_id":"2",
-				"correct":"1",
-				"status":"0",
-				"order":"0",
-				"created_at":"2016-01-25 07:12:54",
-				"updated_at":"2016-01-25 07:12:54"
-			},
-			{
-				"id":"4",
-				"content":"<p>2<\/p>\n",
-				"question_id":"2",
-				"correct":"0",
-				"status":"0",
-				"order":"0",
-				"created_at":"2016-01-25 07:13:22",
-				"updated_at":"2016-01-25 07:13:22"
-			},
-			{
-				"id":"6",
-				"content":"<p>7<\/p>\n",
-				"question_id":"2",
-				"correct":"0",
-				"status":"0",
-				"order":"0",
-				"created_at":"2016-01-26 02:54:18",
-				"updated_at":"2016-01-26 02:54:18"
-			}
-			],
-			"pivot":{
-				"test_id":"1",
-				"question_id":"2",
-				"order":"0"
-			}
-		}
-		]
-	},
-	"question":[{
-		"id":"1",
-		"content":"<p>1 + 1 = ?<\/p>\n",
-		"user_id":"1",
-		"parent_id":null,
-		"status":"1",
-		"created_at":"2016-01-25 07:11:21",
-		"updated_at":"2016-01-25 07:11:21",
-		"answers":[
-		{
-			"id":"1",
-			"content":"<p>2<\/p>\n",
-			"question_id":"1",
-			"correct":"1",
-			"status":"0",
-			"order":"0",
-			"created_at":"2016-01-25 07:12:31",
-			"updated_at":"2016-01-26 02:52:15"
-		},
-		{
-			"id":"3",
-			"content":"<p>3<\/p>\n",
-			"question_id":"1",
-			"correct":"0",
-			"status":"0",
-			"order":"0",
-			"created_at":"2016-01-25 07:13:11",
-			"updated_at":"2016-01-25 07:13:11"
-		},
-		{
-			"id":"5",
-			"content":"<p>9<\/p>\n",
-			"question_id":"1",
-			"correct":"0",
-			"status":"0",
-			"order":"0",
-			"created_at":"2016-01-26 02:54:04",
-			"updated_at":"2016-01-26 02:54:04"
-		}
-		],
-		"pivot":{
-			"test_id":"1",
-			"question_id":"1",
-			"order":"0"
-		}
-	},
-	{
-		"id":"2",
-		"content":"<p>2 + 2 = ?<\/p>\n",
-		"user_id":"1",
-		"parent_id":null,
-		"status":"1",
-		"created_at":"2016-01-25 07:11:58",
-		"updated_at":"2016-01-25 07:11:58",
-		"answers":[
-		{
-			"id":"2",
-			"content":"<p>4<\/p>\n",
-			"question_id":"2",
-			"correct":"1",
-			"status":"0",
-			"order":"0",
-			"created_at":"2016-01-25 07:12:54",
-			"updated_at":"2016-01-25 07:12:54"
-		},
-		{
-			"id":"4",
-			"content":"<p>2<\/p>\n",
-			"question_id":"2",
-			"correct":"0",
-			"status":"0",
-			"order":"0",
-			"created_at":"2016-01-25 07:13:22",
-			"updated_at":"2016-01-25 07:13:22"
-		},
-		{
-			"id":"6",
-			"content":"<p>7<\/p>\n",
-			"question_id":"2",
-			"correct":"0",
-			"status":"0",
-			"order":"0",
-			"created_at":"2016-01-26 02:54:18",
-			"updated_at":"2016-01-26 02:54:18"
-		}
-		],
-		"pivot":{
-			"test_id":"1",
-			"question_id":"2",
-			"order":"0"
-		}
-	}]
+  questions: [
+    {
+      id: 1,
+      content: '<span>Vắc-xin phòng ngừa HPV/Ung thư cổ tử cung được kiểm định và đánh giá an toàn bởi tổ chức nào?<\/span>\n',
+      user_id: 1,
+      parent_id: null,
+      status: 1,
+      answers: [
+        {
+          id: 1,
+          content: '<span>Tổ chức Y tế thế giới (WHO)<\/span>\n',
+          question_id: 1,
+          correct: 1
+        },
+        {
+          id: 2,
+          content: '<span>Trung tâm phòng ngừa và kiểm soát dịch bệnh Hoa Kì (CDC)<\/span>\n',
+          question_id: 1,
+          correct: 0
+        },
+        {
+          id: 3,
+          content: '<span>Cơ quan Dược phẩm Châu Âu (EMA)<\/span>\n',
+          question_id: 1,
+          correct: 0
+        },
+        {
+          id: 4,
+          content: '<span>Cơ quan Thực phẩm Dược phẩm Hoa Kì (FDA)<\/span>\n',
+          question_id: 1,
+          correct: 0
+        },
+        {
+          id: 5,
+          content: '<span>Tất cả đều đúng<\/span>\n',
+          question_id: 1,
+          correct: 0
+        }
+      ]
+    },
+    {
+      id: 2,
+      content: '<span>2 + 2 = ?<\/span>\n',
+      user_id: 1,
+      parent_id: null,
+      answers: [
+        {
+          id: 1,
+          content: '<span>4<\/span>\n',
+          question_id: 2,
+          correct: 1
+        },
+        {
+          id: 2,
+          content: '<span>2<\/span>\n',
+          question_id: 2,
+          correct: 0
+        },
+        {
+          id: 3,
+          content: '<span>7<\/span>\n',
+          question_id: 2,
+          correct: 0
+        }
+      ]
+    }
+  ]
 };

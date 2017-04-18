@@ -1,2 +1,5 @@
-#quizWrap{}
-#quizWrap .quiz-error{color:red;}
+#quizWrap {}
+
+#quizWrap .quiz-error {
+    color: red;
+}

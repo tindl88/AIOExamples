@@ -1,109 +1,96 @@
-(function(){
-	'use strict';
-	angular
-	.module('myApp', [])
-	.directive('bzQuiz', bzQuiz)
-	.controller('homeCtrl', homeCtrl);
+(function() {
+  'use strict';
 
-	function homeCtrl($scope){
-		var home = this;
-		home.json = fakeData;
-		home.finishQuiz = finishQuiz;
+  angular
+  .module('myApp', ['ngSanitize'])
+  .directive('bzQuiz', bzQuiz)
+  .controller('homeCtrl', homeCtrl);
 
-		function finishQuiz(data){
-			console.clear();
-			console.log(data);
-		}
-	}
+  function homeCtrl($scope) {
+    var home = this;
+    home.json = fakeData;
+  }
 
-	function bzQuiz($interval){
-		return {
-			link: function(scope, iElement, iAttrs){
-				var answerData = [],
-				unAnswerData = [];
+  function bzQuiz($interval) {
+    return {
+      link: function(scope, iElm, iAttrs) {
+        var quizData = scope.home.json;
+        scope.quizFinish = quizFinish;
+        scope.quizSelect = quizSelect;
 
-				quizCountdown();
-				quizRegisterEvents();
+        initAnswerData();
+        quizCountdown();
 
-	            function quizRegisterEvents(){
-		            var endQuiz = iElement.find('.btnEndQuiz');
-		            endQuiz.on('click', function(event) {
-		            	quizFinish();
-		            	event.preventDefault();
-		            });
-	            }
+        function initAnswerData() {
+          scope.answerData = {
+            all: [],
+            correct: [],
+            inCorrect: [],
+            hasAnswer: [],
+            notAnswer: []
+          };
+        }
 
-	            function quizFinish(){
-	            	var items = iElement.find('.item'),
-	            		className = 'quiz-error';
+        function quizFinish() {
+          //Trả lời đúng
+          scope.answerData.correct = scope.answerData.all.filter(item => item.correct === 1);
+          //Trả lời sai
+          scope.answerData.inCorrect = scope.answerData.all.filter(item => item.correct === 0);
+          //Chưa trả lời
+		  scope.answerData.hasAnswer = [];
+		  scope.answerData.notAnswer = [];
+          for (var i = 0; i < quizData.questions.length; i++) {
+            var q = quizData.questions[i];
+            var b = {id: q.id};
+            if (q.selected === 1) {
+              scope.answerData.hasAnswer.push(b);
+            } else {
+              scope.answerData.notAnswer.push(b);
+            }
+          }
+        }
 
-	            	for (var i = 0; i < items.length; i++) {
-	            		var itemChecked = false,
-	            		self = $(items[i]),
-	            		options = self.find('input[type="radio"]'),
-	            		itemKey = self.attr('key'),
-	            		itemValue = 0;
+        function quizSelect(question, answer) {
+          question.selected = 1;
 
-	            		$.each(options, function(j, k){
-	            			var props = $(k).prop('checked');
+          var qExist = _.findIndex(scope.answerData.all, function(item) {
+            return item.id === question.id;
+          });
 
-	            			if(props){
-	            				itemChecked = true;
-	            				itemValue = $(k).val() === '' ? 0 : parseInt($(k).val());
-	            				if(itemValue !== 1){
-	            					self.addClass(className);
-	            				} else {
-	            					self.removeClass(className);
-	            				}
-	            			}
-	            		});
+          if (qExist !== -1) {
+            scope.answerData.all[qExist].answer = answer.id;
+            scope.answerData.all[qExist].correct = answer.correct;
+          } else {
+            scope.answerData.all.push({id: question.id, answer: answer.id, correct: answer.correct});
+          }
+        }
 
-	            		if(!itemChecked){
-	            			unAnswerData.push({
-	            				element: items[i]
-	            			});
-	            			self.addClass(className);
-	            		}
+        function quizCountdown() {
+          var time = parseFloat(iAttrs.bzQuiz) * 60;
+          var countdown = iElm.find('.countdown');
+          countdown.text(time);
 
-            			answerData.push({
-            				quest: parseInt(itemKey),
-            				answer: itemValue,
-            				element: items[i]
-            			});
-	            	};
+          var timer = $interval(
+            function() {
+              time--;
 
-	            	scope.home.finishQuiz(answerData);
-	            	quizReset();
-	            }
+              if (time < 840) {
+                countdown.css('color', 'green');
+              }
+              if (time < 300) {
+                countdown.css('color', 'red');
+              }
+              countdown.text(time);
 
-	            function quizCountdown(){
-	            	var time = parseFloat(iAttrs.bzQuiz) * 60;
-	            	var countdown = iElement.find('.countdown');
-
-	            	var timer = $interval(function(){
-	            		time--;
-
-	            		if(time < 840){
-	            			countdown.css('color', 'green');
-	            		}
-	            		if(time < 300){
-	            			countdown.css('color', 'red');
-	            		}
-	            		countdown.text(time);
-
-	            		if(time <= 0){
-	            			$interval.cancel(timer);
-	            			quizFinish();
-	            		}
-	            	},1000);
-	            }
-
-
-	            function quizReset(){
-	            	answerData = [];
-	            	unAnswerData = [];
-	            }
-	        }
-	    };
-	}
+              if (time <= 0) {
+                $interval.cancel(timer);
+                quizFinish();
+              }
+            },
+            1000
+          );
+        }
+      }
+    };
+  }
 })();
