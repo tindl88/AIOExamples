@@ -4,72 +4,72 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-		.common-grid {
+		.common-dgrid {
 			width: 100%;
 			display: table;
 		}
-		.common-grid .col {
+		.common-dgrid .col {
 			padding: 3px 10px;
 			display: table-cell;
 		}
-		.common-grid .grid-body{
+		.common-dgrid .dgrid-body{
 			display: table-row-group;
 		}
-		.common-grid .grid-footer{
+		.common-dgrid .dgrid-footer{
 			display: table-footer-group;
 		}
-		.common-grid .grid-head{
+		.common-dgrid .dgrid-head{
 			display: table-header-group;
 		}
-		.common-grid .grid-head .col {
+		.common-dgrid .dgrid-head .col {
 			padding: 6px 10px;
 		}
-		.common-grid .grid-head .col.sort {
+		.common-dgrid .dgrid-head .col.sort {
 			cursor: pointer;
 		}
-		.common-grid .grid-head .col i {
+		.common-dgrid .dgrid-head .col i {
 			position: relative;
 			top: 2px;
 		}
-		.common-grid .grid-row {
+		.common-dgrid .dgrid-row {
 			display: table-row;
 		}
-		.common-grid .grid-row.selected {
+		.common-dgrid .dgrid-row.selected {
 			background: rgba(255, 0, 0, 0.1);
 		}
-		.common-grid .grid-row .text-truncate {
+		.common-dgrid .dgrid-row .text-truncate {
 			text-overflow: ellipsis;
 			overflow: hidden;
 			white-space: nowrap;
 		}
-		.common-grid .col-check {
+		.common-dgrid .col-check {
 			width: 30px;
 		}
-		.common-grid .col-num {
+		.common-dgrid .col-num {
 			width: 48px;
 		}
-		.common-grid .col-pic {
+		.common-dgrid .col-pic {
 			width: 100px;
 		}
-		.common-grid .col-publish {
+		.common-dgrid .col-publish {
 			width: 48px;
 		}
-		.common-grid .col-sort {
+		.common-dgrid .col-sort {
 			width: 48px;
 		}
-		.common-grid .col-control {
+		.common-dgrid .col-control {
 			width: 120px;
 		}
-		.common-grid .txt-sort {
+		.common-dgrid .txt-sort {
 			width: 48px;
 			text-align: center;
 		}
-		.common-grid .btn-sort {
+		.common-dgrid .btn-sort {
 			vertical-align: middle;
 			font-size: 20px;
 			cursor: pointer;
 		}
-		.common-grid .grid-footer {
+		.common-dgrid .dgrid-footer {
 			padding: 20px 0;
 			margin: 0;
 			text-align: center;
@@ -77,10 +77,10 @@
 	</style>
 </head>
 <body>
-	<div class="common-grid-wrap">
-		<div class="common-grid">
-			<div class="grid-sec grid-head">
-				<div class="grid-row">
+	<div class="common-dgrid-wrap">
+		<div class="common-dgrid">
+			<div class="dgrid-sec dgrid-head">
+				<div class="dgrid-row">
 					<div class="col text-center col-check">
 						<label role="checkbox" for="chk-select-all" ng-click="post.selectItem('multiple')">
 							<input id="chk-select-all" name="chk-select-all" type="checkbox" ng-model="post.selectedAll" />
@@ -112,8 +112,8 @@
 					<div class="clearfix"></div>
 				</div>
 			</div>
-			<div class="grid-sec grid-body">
-				<div class="grid-row">
+			<div class="dgrid-sec dgrid-body">
+				<div class="dgrid-row">
 					<div class="col col-check text-center">
 						<label role="checkbox" for="chk-select">
 							<input id="chk-select" name="chk-select" type="checkbox" />
@@ -145,7 +145,7 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="grid-row">
+				<div class="dgrid-row">
 					<div class="col col-check text-center">
 						<label role="checkbox" for="chk-select">
 							<input id="chk-select" name="chk-select" type="checkbox" />
@@ -177,7 +177,7 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="grid-row">
+				<div class="dgrid-row">
 					<div class="col col-check text-center">
 						<label role="checkbox" for="chk-select">
 							<input id="chk-select" name="chk-select" type="checkbox" />
@@ -209,7 +209,7 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="grid-row">
+				<div class="dgrid-row">
 					<div class="col col-check text-center">
 						<label role="checkbox" for="chk-select">
 							<input id="chk-select" name="chk-select" type="checkbox" />
@@ -243,7 +243,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="grid-empty">
+		<div class="dgrid-empty">
 			<p class="no-result text-center">Không có dữ liệu.</p>
 		</div>
 	</div>
