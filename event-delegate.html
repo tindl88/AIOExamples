@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegate</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .palette {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+      }
+      li {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>Event Delegation</div>
+      <ol class="palette" id="palette"></ol>
+    </div>
+
+    <script>
+      const palette = document.querySelector('#palette');
+      palette.addEventListener('click', handleClick);
+
+      let paletteBuilder = colourBuilder();
+
+      for (const colour of paletteBuilder) {
+        const element = document.createElement('li');
+        element.style.backgroundColor = colour;
+        palette.appendChild(element);
+      }
+
+      function handleClick(el) {
+        console.log(`You clicked on this colour: ${el.target.style.backgroundColor}`);
+      }
+
+      function* colourBuilder() {
+        for (let i = 0; i < 150; i++) {
+          yield `#${getRandomHex()}${getRandomHex()}${getRandomHex()}`;
+        }
+      }
+
+      function getRandomHex() {
+        return Math.round(Math.random() * 256)
+          .toString(16)
+          .padStart(2, '0');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="content"></div>
+  <script>
+  var tongTienVay = 130000000; // 130tr
+  var tienTraMoiThang = 2500000; // 2tr5
+  var thoiGianTra = 77; //6.5 năm
+  var phanTramVay = 1.1; // % lai suat
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'VND',
+  });
+  document.querySelector('#content').innerHTML = calc();
+
+  function tinhLaiNganHang() {
+    var tienLaiNganHangMoiThang = tongTienVay * (phanTramVay / 100);
+    var tienGocPhaiTraMoiThang = tienTraMoiThang - tienLaiNganHangMoiThang;
+    tongTienVay -= tienGocPhaiTraMoiThang;
+    return {
+      laiThang: tienLaiNganHangMoiThang,
+      gocThang: tienGocPhaiTraMoiThang,
+      gocConLai: tongTienVay
+    };
+  }
+
+  function calc() {
+    var data = [];
+    for (let i = 1; i < thoiGianTra + 1; i++) {
+      data.push({
+        thang: i,
+        ...tinhLaiNganHang()
+      });
+    }
+
+    var table = [];
+    table.push(`<table border='1'>`);
+    var tongSoLai = 0;
+
+    for (let i = 0; i < data.length; i++) {
+      tongSoLai = tongSoLai + data[i].laiThang;
+      table.push('<tr>');
+      table.push(`<td>Tháng ${data[i].thang}</td>`);
+      table.push(`<td style="padding:2px;">Trả lãi <strong>${formatter.format(data[i].laiThang)}</strong></td>`);
+      table.push(`<td style="padding:2px;">Trả gốc <strong>${formatter.format(data[i].gocThang)}</strong></td>`);
+      table.push(`<td style="padding:2px;">Còn lại <strong>${formatter.format(data[i].gocConLai)}</strong></td>`);
+      table.push('</tr>');
+    }
+    table.push(`<tr>Tổng số lãi: ${formatter.format(tongSoLai)}</tr>`);
+    table.push('</table>');
+
+    return table.join('');
+  }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Promise - async - await</title>
+</head>
+
+<body>
+  <button class="start">Start</button>
+  <button class="stop">Stop</button>
+  <h1></h1>
+  <script>
+  document.querySelector('button.start').addEventListener('click', () => run(), false);
+  document.querySelector('button.stop').addEventListener('click', () => stop(), false);
+
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+  function run() {
+    Task();
+  }
+
+  function stop() {}
+
+  async function Task() {
+    return new Promise(wrapResolve => {
+      try {
+        start();
+
+        async function start() {
+          return new Promise(async (resolve, reject) => {
+            try {
+              console.log(await aFunc(1000));
+              console.log(await bFunc(1000));
+              console.log(await cFunc(1000));
+              console.log(await dFunc(1000));
+              resolve('pass');
+            } catch (error) {
+              reject('fail');
+            }
+          });
+        }
+
+        async function aFunc(ms) {
+          return new Promise(async (resolve, reject) => {
+            try {
+              await sleep(ms);
+              resolve('pass');
+            } catch (error) {
+              reject('fail');
+            }
+          });
+        }
+
+        async function bFunc(ms) {
+          return new Promise(async (resolve, reject) => {
+            try {
+              await sleep(ms);
+              resolve('pass');
+            } catch (error) {
+              reject('fail');
+            }
+          });
+        }
+
+        async function cFunc(ms) {
+          return new Promise(async (resolve, reject) => {
+            try {
+              await sleep(ms);
+              const isSuccess = Boolean(Math.round(Math.random()));
+              if (isSuccess) {
+                resolve('pass');
+              } else {
+                reject('fail');
+              }
+            } catch (error) {
+              reject('fail');
+            }
+          });
+        }
+
+        async function dFunc(ms) {
+          return new Promise(async (resolve, reject) => {
+            try {
+              await sleep(ms);
+              resolve('pass');
+            } catch (error) {
+              reject('fail');
+            }
+          });
+        }
+      } catch (error) {
+        wrapResolve('fail');
+      }
+    });
+  }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Promise - async - await</title>
+</head>
+
+<body>
+  <button class="start">Start</button>
+  <button class="stop">Stop</button>
+  <h1></h1>
+  <script>
+  document.querySelector('button.start').addEventListener('click', () => run(), false);
+  document.querySelector('button.stop').addEventListener('click', () => stop(), false);
+
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+  const token = {};
+
+  function run() {
+    let promise = Task(token);
+  }
+
+  function stop() {
+    token.cancel();
+  }
+
+  async function Task(token) {
+    let cancelled = false;
+    
+    token.cancel = () => {
+      cancelled = true;
+    };
+
+    const a = await wrapWithCancel(aFunc)(2000);
+    console.log(a);
+    const b = await wrapWithCancel(bFunc)(2000);
+    console.log(b);
+    const c = await wrapWithCancel(cFunc)(2000);
+    console.log(c);
+    const d = await wrapWithCancel(dFunc)(2000);
+    console.log(d);
+
+    if (cancelled) {
+      throw {
+        reason: 'cancelled'
+      };
+    }
+
+    return d;
+
+    async function aFunc(ms) {
+      return new Promise(async (resolve, reject) => {
+        try {
+          await sleep(ms);
+          resolve('aFunc Success');
+        } catch (error) {
+          reject('aFunc Error');
+        }
+      });
+    }
+
+    async function bFunc(ms) {
+      return new Promise(async (resolve, reject) => {
+        try {
+          await sleep(ms);
+          resolve('bFunc Success');
+        } catch (error) {
+          reject('bFunc Error');
+        }
+      });
+    }
+
+    async function cFunc(ms) {
+      return new Promise(async (resolve, reject) => {
+        try {
+          await sleep(ms);
+          const isSuccess = Boolean(Math.round(Math.random()));
+          if (isSuccess) {
+            resolve('cFunc Success');
+          } else {
+            reject('cFunc Error');
+          }
+        } catch (error) {
+          reject('cFunc Error');
+        }
+      });
+    }
+
+    async function dFunc(ms) {
+      return new Promise(async (resolve, reject) => {
+        try {
+          await sleep(ms);
+          resolve('dFunc Success');
+        } catch (error) {
+          reject('dFunc Error');
+        }
+      });
+    }
+
+    function wrapWithCancel(fn) {
+      return data => {
+        if (!cancelled) {
+          return fn(data);
+        }
+      }
+    }
+  }
+
+  </script>
+</body>
+
+</html>

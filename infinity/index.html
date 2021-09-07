@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Drag and Drop</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+	<button class="btn btn-primary btn-get">GET</button>
+	<script src="jquery-2.2.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var lastData;
+			var list = [];
+
+			let testIdx = 0;
+			var testData = [
+				['a', 'b'],
+				['a', 'b', 'c', 'd'],
+				['c', 'd', 'e', 'f'],
+				['e', 'f', 'g', 'h', 'i', 'j'],
+				['k', 'l'],
+			];
+
+			$('.btn-get').on('click', function () {
+				if (testIdx === 5) return;
+
+				var crawlData = testData[testIdx];
+				lastData = list[list.length - 1];
+				var idx = crawlData.indexOf(lastData) + 1;
+				for (var i = idx; i < crawlData.length; i++) {
+					list.push(crawlData[i]);
+				}
+				console.log(list);
+				testIdx++;
+			});
+		});
+	</script>
+</body>
+
+</html>
